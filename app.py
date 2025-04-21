@@ -1,6 +1,6 @@
 import streamlit as st
 from database import validar_login
-import Principal  # importa para redirecionar sem recarregar
+import menuprincipal  # importa para redirecionar sem recarregar
 
 
 if "usuario" not in st.session_state:
@@ -12,7 +12,7 @@ if "logado" not in st.session_state:
 
 # Se logado, mostra tela principal
 if st.session_state.logado:
-    Principal.show()
+    menuprincipal.show()
 
 # Senão, mostra tela de login
 else:
