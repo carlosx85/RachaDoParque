@@ -1,2 +1,5 @@
 mysql-connector-python==8.0.31
 streamlit==1.14.0
+altair
+pandas
+mysql-connector-python
