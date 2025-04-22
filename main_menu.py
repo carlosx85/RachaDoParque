@@ -6,8 +6,6 @@ from modules.pagamento import show as pagamento_show
 from modules.despesa import show as despesa_show
 import header  # se tiver
 
-if "usuario" not in st.session_state:
-    st.session_state.usuario = ""
 
 def show():
     # Cabeçalho
