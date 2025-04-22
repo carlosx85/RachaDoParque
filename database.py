@@ -17,7 +17,7 @@ def validar_login(usuario, senha):
     try:
         conexao = conectar()
         cursor = conexao.cursor(buffered=True)
-        consulta = "SELECT * FROM Racha_Usuario WHERE Login like %s  AND Senha like %s"
+        consulta = "SELECT * FROM Racha_Usuario WHERE Login LIKE 'Buba'  AND Senha LIKE 'a'"
         cursor.execute(consulta, (usuario, senha))
         resultado = cursor.fetchone()
         return resultado is not None
