@@ -29,6 +29,7 @@ else:
     usuario = st.text_input("Usuário")
     senha = st.text_input("Senha", type="password")
 
+    st.write("Host carregado do secrets:", st.secrets["mysql"]["host"])
     if st.button("Entrar"):
         if validar_login(usuario, senha):
             st.session_state.logado = True
