@@ -10,9 +10,7 @@ if "usuario" not in st.session_state:
 if "logado" not in st.session_state:
     st.session_state.logado = False
 
-# Se logado, mostra tela principal
-if st.session_state.logado:
-    main_menu.show()
+ 
 
 # Senão, mostra tela de login
 else:
