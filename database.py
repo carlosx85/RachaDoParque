@@ -13,26 +13,9 @@ def conectar():
     )
     
     
-    
+ 
 
 def validar_login(usuario, senha):
-    try:
-        conexao = conectar()
-        cursor = conexao.cursor(buffered=True)
-        consulta = "SELECT * FROM Racha_Usuario   "
-        cursor.execute(consulta, (usuario, senha))
-        resultado = cursor.fetchone()
-        return resultado is not None
-    except Exception as e:
-        print(f"Erro ao validar login: {e}")  # útil para debug local ou log
-        return False
-    finally:
-        if 'cursor' in locals():
-            cursor.close()
-        if 'conexao' in locals() and conexao.is_connected():
-            conexao.close()
-
-def validar_login22(usuario, senha):
     conexao = conectar()
     cursor = conexao.cursor(buffered=True)  # <-- corrigido aqui
     consulta = "SELECT * FROM Racha_Usuario WHERE Login = %s AND Senha = %s"
