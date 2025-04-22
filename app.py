@@ -30,6 +30,7 @@ else:
     senha = st.text_input("Senha", type="password")
 
     st.write("Host carregado do secrets:", st.secrets["mysql"]["host"])
+    st.write("bcrypt está funcionando!")
     if st.button("Entrar"):
         if validar_login(usuario, senha):
             st.session_state.logado = True
