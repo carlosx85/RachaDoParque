@@ -3,13 +3,17 @@ import streamlit as st
 import pandas as pd
 
 
-def conectar():
-    return mysql.connector.connect(
-        host=st.secrets["mysql"]["host"],
-        user=st.secrets["mysql"]["user"],
-        password=st.secrets["mysql"]["password"],
-        database=st.secrets["mysql"]["database"]
-    )
+ 
+
+db_config = st.secrets["mysql"]
+
+conectar = mysql.connector.connect(
+    host=db_config["host"],
+    user=db_config["user"],
+    password=db_config["password"],
+    database=db_config["database"]
+)
+
 
 
 def validar_login(usuario, senha):
