@@ -10,4 +10,23 @@ if "usuario" not in st.session_state:
     st.session_state.usuario = ""
 
 def show():
- 
+    # Cabeçalho
+    import header
+    header.show()
+
+    menu = st.sidebar.radio("Menu", ["Principal", "Cadastro", "Financeiro", "Pagamento", "Despesa", "Sair"])
+
+    if menu == "Principal":
+        principal_show()
+    elif menu == "Cadastro":
+        cadastro_show()
+    elif menu == "Financeiro":
+        financeiro_show()
+    elif menu == "Pagamento":
+        pagamento_show()
+    elif menu == "Despesa":
+        despesa_show()
+    elif menu == "Sair":
+        st.session_state.logado = False
+        st.session_state.usuario = ""
+        st.rerun()
