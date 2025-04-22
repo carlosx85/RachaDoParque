@@ -4,7 +4,13 @@ import pandas as pd
 
 
 def conectar():
-    return mysql.connector.connect(**st.secrets["mysql"])
+    return mysql.connector.connect(
+        host=st.secrets["mysql"]["host"],
+        user=st.secrets["mysql"]["user"],
+        password=st.secrets["mysql"]["password"],
+        database=st.secrets["mysql"]["database"],
+        charset='utf8mb4'  # ou remova esta linha se necessário
+    )
 
 def validar_login(usuario, senha):
     conexao = conectar()
