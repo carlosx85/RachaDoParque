@@ -1,6 +1,6 @@
 import streamlit as st
 from database import validar_login
-import menuprincipal  # fimporta para redirecionar sem recarregar
+import main_menu as menuprincipal
 
 
 if "usuario" not in st.session_state:
