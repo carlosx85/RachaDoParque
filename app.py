@@ -2,7 +2,6 @@ import streamlit as st
 from database import validar_login
 import main_menu
  
- 
 
 # Inicializa variáveis da sessão, se ainda não existirem
 if "usuario" not in st.session_state:
