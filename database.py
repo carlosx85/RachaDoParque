@@ -2,17 +2,37 @@ import mysql.connector
 import streamlit as st
 import pandas as pd
 
-
+   
 def conectar():
     return mysql.connector.connect(
         host=st.secrets["mysql"]["host"],
         user=st.secrets["mysql"]["user"],
         password=st.secrets["mysql"]["password"],
         database=st.secrets["mysql"]["database"],
-        charset='utf8mb4'  # ou remova esta linha se necessário
+        charset='utf8mb4'  # <-- preferível a 'utf8'
     )
+    
+    
+    
 
 def validar_login(usuario, senha):
+    try:
+        conexao = conectar()
+        cursor = conexao.cursor(buffered=True)
+        consulta = "SELECT * FROM Racha_Usuario WHERE Login = %s AND Senha = %s"
+        cursor.execute(consulta, (usuario, senha))
+        resultado = cursor.fetchone()
+        return resultado is not None
+    except Exception as e:
+        print(f"Erro ao validar login: {e}")  # útil para debug local ou log
+        return False
+    finally:
+        if 'cursor' in locals():
+            cursor.close()
+        if 'conexao' in locals() and conexao.is_connected():
+            conexao.close()
+
+def validar_loginxx(usuario, senha):
     conexao = conectar()
     cursor = conexao.cursor(buffered=True)  # <-- corrigido aqui
     consulta = "SELECT * FROM Racha_Usuario WHERE Login = %s AND Senha = %s"
