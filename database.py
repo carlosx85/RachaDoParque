@@ -13,7 +13,6 @@ def conectar():
     )
        
     
-
 def validar_login(usuario, senha):
     try:
         conexao = conectar()
