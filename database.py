@@ -2,6 +2,15 @@ import mysql.connector
 import streamlit as st
 import pandas as pd
 
+
+[mysql]
+host="mysql4.iphotel.com.br"
+user="umotimoempreen02"
+password="82es44fa2A!"
+database="umotimoempreen02"
+charset="utf8mb4"
+
+
    
 def conectar():
     return mysql.connector.connect(
