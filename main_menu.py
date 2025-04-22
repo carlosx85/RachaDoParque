@@ -20,8 +20,7 @@ def show():
 
     elif menu == "Financeiro":
         financeiro_show()
-    elif menu == "Pagamento":
-        pagamento_show()
+
     elif menu == "Despesa":
         despesa_show()
     elif menu == "Sair":
