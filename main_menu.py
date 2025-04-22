@@ -20,9 +20,7 @@ def show():
 
     elif menu == "Financeiro":
         financeiro_show()
-
-    elif menu == "Despesa":
-        despesa_show()
+ 
     elif menu == "Sair":
         st.session_state.logado = False
         st.session_state.usuario = ""
