@@ -11,10 +11,8 @@ def conectar():
         database=st.secrets["mysql"]["database"],
         charset=st.secrets["mysql"]["charset"]
     )
- 
-       
+     
     
-
 
 def validar_login(usuario, senha):
     try:
