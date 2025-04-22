@@ -15,7 +15,7 @@ def conectar():
     
     
 
-def validar_login(usuario, senha):
+def validar_loginsss(usuario, senha):
     try:
         conexao = conectar()
         cursor = conexao.cursor(buffered=True)
@@ -32,7 +32,7 @@ def validar_login(usuario, senha):
         if 'conexao' in locals() and conexao.is_connected():
             conexao.close()
 
-def validar_loginxx(usuario, senha):
+def validar_login(usuario, senha):
     conexao = conectar()
     cursor = conexao.cursor(buffered=True)  # <-- corrigido aqui
     consulta = "SELECT * FROM Racha_Usuario WHERE Login = %s AND Senha = %s"
