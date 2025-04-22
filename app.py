@@ -1,20 +1,20 @@
 import streamlit as st
 from database import validar_login
-import main_menu  
+import main_menu
 
-
+# Inicializa variáveis da sessão, se ainda não existirem
 if "usuario" not in st.session_state:
     st.session_state.usuario = ""
 
-# Inicializa estado
 if "logado" not in st.session_state:
     st.session_state.logado = False
 
- 
+# Se estiver logado, mostra o menu principal
+if st.session_state.logado:
+    main_menu.show()
 
-# Senão, mostra tela de login
+# Caso contrário, mostra tela de login
 else:
-    # Só mostra o cabeçalho quando NÃO está logado
     st.markdown(
         """
         <div style="text-align: center;">
@@ -36,6 +36,3 @@ else:
             st.rerun()
         else:
             st.error("Usuário ou senha inválidos.")
-            
-            
-
