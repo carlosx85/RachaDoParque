@@ -3,23 +3,21 @@ import streamlit as st
 import pandas as pd
 import bcrypt
 
-
+   
+ 
 def conectar():
     return mysql.connector.connect(
         host=st.secrets["mysql"]["host"],
         user=st.secrets["mysql"]["user"],
         password=st.secrets["mysql"]["password"],
-        database=st.secrets["mysql"]["database"]
-
+        database=st.secrets["mysql"]["database"],
+        charset=st.secrets["mysql"]["charset"]  # agora vai puxar "utf8mb4"
     )
-     
- 
- 
 
 def validar_login(usuario, senha):
     conexao = conectar()
     cursor = conexao.cursor(buffered=True)  # <-- corrigido aqui
-    consulta = "SELECT * FROM Racha_Usuario WHERE Login = %s AND Senha = %s"
+    consulta = "SELECT * FROM Racha_Usuario WHERE login = %s AND senha = %s"
     cursor.execute(consulta, (usuario, senha))
     resultado = cursor.fetchone()
     cursor.close()
