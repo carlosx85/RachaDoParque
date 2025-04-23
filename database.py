@@ -6,11 +6,11 @@ import bcrypt
 
 def conectar():
     return mysql.connector.connect(
-        host="mysql4.iphotel.com.br",
-        user="umotimoempreen02",
-        password="82es44fa2A!",
-        database="umotimoempreen02",
-        charset="utf8mb4"
+        host=st.secrets["mysql"]["host"],
+        user=st.secrets["mysql"]["user"],
+        password=st.secrets["mysql"]["password"],
+        database=st.secrets["mysql"]["database"],
+        charset=st.secrets["mysql"]["charset"]
     )
      
  
