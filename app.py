@@ -1,5 +1,5 @@
 import streamlit as st
-from database import validar_loginx
+from database import validar_login
 import main_menu
  
 

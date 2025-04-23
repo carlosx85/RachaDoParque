@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import bcrypt
 
+
 def conectar():
     return mysql.connector.connect(
         host=st.secrets["mysql"]["host"],
@@ -14,27 +15,7 @@ def conectar():
      
     
 
-def validar_login(usuario, senha):
-    try:
-        conexao = conectar()
-        cursor = conexao.cursor(buffered=True)
-        cursor.execute("SELECT Senha FROM Racha_Usuario WHERE Login = %s", (usuario,))
-        resultado = cursor.fetchone()
 
-        if resultado:
-            senha_hash = resultado[0]
-            return bcrypt.checkpw(senha.encode('utf-8'), senha_hash.encode('utf-8'))
-        return False
-
-    except Exception as e:
-        print(f"Erro ao validar login: {e}")
-        return False
-
-    finally:
-        if 'cursor' in locals():
-            cursor.close()
-        if 'conexao' in locals() and conexao.is_connected():
-            conexao.close()
 
             
             
