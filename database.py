@@ -1,59 +1,26 @@
 import mysql.connector
 import streamlit as st
 import pandas as pd
-import bcrypt
 
 
-   
- 
 def conectar():
     return mysql.connector.connect(
         host=st.secrets["mysql"]["host"],
         user=st.secrets["mysql"]["user"],
         password=st.secrets["mysql"]["password"],
-        database=st.secrets["mysql"]["database"],
-        charset=st.secrets["mysql"]["charset"]  # agora vai puxar "utf8mb4"
+        database=st.secrets["mysql"]["database"]
     )
+
 
 def validar_login(usuario, senha):
     conexao = conectar()
     cursor = conexao.cursor(buffered=True)  # <-- corrigido aqui
     consulta = "SELECT * FROM Racha_Usuario WHERE Login = %s AND Senha = %s"
-    cursor.execute(consulta, (usuario, senha,))
+    cursor.execute(consulta, (usuario, senha))
     resultado = cursor.fetchone()
     cursor.close()
     conexao.close()
     return resultado is not None
-
-
-
-   
-
-def validar_loginx(usuario, senha):
-    try:
-        conexao = conectar()
-        cursor = conexao.cursor(buffered=True)
-        cursor.execute("SELECT Login FROM Racha_Usuario WHERE Login = %s", (usuario,))
-        resultado = cursor.fetchone()
-
-        if resultado:
-            senha_hash = resultado[0]
-            return bcrypt.checkpw(senha.encode('utf-8'), senha_hash.encode('utf-8'))
-        return False
-
-    except Exception as e:
-        print(f"Erro ao validar login: {e}")
-        return False
-
-    finally:
-        if 'cursor' in locals():
-            cursor.close()
-        if 'conexao' in locals() and conexao.is_connected():
-            conexao.close()
-
-            
-            
-
 
 
 
