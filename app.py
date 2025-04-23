@@ -31,7 +31,7 @@ else:
     usuario = st.text_input("Usuário")
     senha = st.text_input("Senha", type="password")
 
-    if st.button("Entrar"):
+    if st.button("Entrarxx"):
         if validar_login(usuario, senha):
             st.session_state.logado = True
             st.session_state.usuario = usuario 
