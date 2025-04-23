@@ -6,18 +6,18 @@ import bcrypt
 
 def conectar():
     return mysql.connector.connect(
-        host=st.secrets["mysql"]["host"],
-        user=st.secrets["mysql"]["user"],
-        password=st.secrets["mysql"]["password"],
-        database=st.secrets["mysql"]["database"]
- 
+        host="mysql4.iphotel.com.br",
+        user="umotimoempreen02",
+        password="82es44fa2A!",
+        database="umotimoempreen02",
+        charset="utf8mb4"
     )
      
  
 def validar_login(usuario, senha):
     conexao = conectar()
     cursor = conexao.cursor(buffered=True)  # <-- corrigido aqui
-    consulta = "SELECT * FROM Racha_Usuario WHERE Login = %s AND Senha = %s"
+    consulta = "SELECT * FROM Racha_Usuarios WHERE Login = %s AND Senha = %s"
     cursor.execute(consulta, (usuario, senha))
     resultado = cursor.fetchone()
     cursor.close()
