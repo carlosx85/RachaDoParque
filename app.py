@@ -27,16 +27,14 @@ else:
     )
 
  
-    
-    usuario = st.text_input("Usuário")
-    senha = st.text_input("Senha", type="password")
+login = st.text_input("Login")
+senha = st.text_input("Senha", type="password")
 
-    if st.button("Entrar"):
-        if validar_login(usuario, senha):
-            st.session_state.logado = True
-            st.session_state.usuario = usuario 
-            st.session_state.senha = senha 
-            st.rerun()
-        else:
-            st.error("Usuário ou senha inválidos.")
+if st.button("Entrar"):
+    if validar_login(login, senha):
+        st.session_state.logado = True
+        st.session_state.usuario = login
+        st.success("Login realizado com sucesso!")
+    else:
+        st.error("Usuário ou senha inválidos.")
   

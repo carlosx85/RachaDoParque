@@ -13,15 +13,33 @@ def conectar():
         database=st.secrets["mysql"]["database"]
     )
 
-def validar_login(usuario, senha):
+def validar_login(login, senha):
+    # Conectar ao banco de dados
     conexao = conectar()
-    cursor = conexao.cursor(buffered=True)  # <-- corrigido aqui
-    consulta = "SELECT * FROM Racha_Usuario WHERE login = %s AND senha = %s"
-    cursor.execute(consulta, (usuario, senha))
-    resultado = cursor.fetchone()
-    cursor.close()
-    conexao.close()
-    return resultado is not None
+    cursor = conexao.cursor()
+
+    try:
+        # Consultar o usuário no banco
+        consulta = "SELECT senha FROM Racha_Usuario WHERE login = %s"
+        cursor.execute(consulta, (login,))
+        resultado = cursor.fetchone()
+
+        if resultado:
+            # Comparar a senha fornecida com o hash armazenado
+            senha_hash = resultado[0]
+            if bcrypt.checkpw(senha.encode('utf-8'), senha_hash.encode('utf-8')):
+                return True
+            else:
+                return False
+        else:
+            return False
+    except mysql.connector.Error as err:
+        st.error(f"Erro ao validar login: {err}")
+        return False
+    finally:
+        cursor.close()
+        conexao.close()
+
 
 
 
