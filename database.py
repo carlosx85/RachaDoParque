@@ -18,18 +18,13 @@ def conectar():
 
 def validar_login(usuario, senha):
     conexao = conectar()
-    cursor = conexao.cursor()
-    consulta = "SELECT * FROM Racha_Usuario WHERE Login = %s, Senha = %s"
-    cursor.execute(consulta, (usuario,senha))
+    cursor = conexao.cursor(buffered=True)  # <-- corrigido aqui
+    consulta = "SELECT * FROM Racha_Usuario WHERE Login = %s AND Senha = %s"
+    cursor.execute(consulta, (usuario, senha))
     resultado = cursor.fetchone()
     cursor.close()
     conexao.close()
-
-    if resultado:
-        senha_hash = resultado[0]
-        return bcrypt.checkpw(senha.encode('utf-8'), senha_hash.encode('utf-8'))
-    
-    return False
+    return resultado is not None
 
 
 
