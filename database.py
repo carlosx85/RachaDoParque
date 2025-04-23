@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import bcrypt
 
+
    
  
 def conectar():
@@ -10,36 +11,19 @@ def conectar():
         host=st.secrets["mysql"]["host"],
         user=st.secrets["mysql"]["user"],
         password=st.secrets["mysql"]["password"],
-        database=st.secrets["mysql"]["database"]
+        database=st.secrets["mysql"]["database"],
+        charset=st.secrets["mysql"]["charset"]  # agora vai puxar "utf8mb4"
     )
 
-def validar_login(login, senha):
-    # Conectar ao banco de dados
+def validar_login(usuario, senha):
     conexao = conectar()
-    cursor = conexao.cursor()
-
-    try:
-        # Consultar o usuário no banco
-        consulta = "SELECT senha FROM Racha_Usuario WHERE login = %s"
-        cursor.execute(consulta, (login,))
-        resultado = cursor.fetchone()
-
-        if resultado:
-            # Comparar a senha fornecida com o hash armazenado
-            senha_hash = resultado[0]
-            if bcrypt.checkpw(senha.encode('utf-8'), senha_hash.encode('utf-8')):
-                return True
-            else:
-                return False
-        else:
-            return False
-    except mysql.connector.Error as err:
-        st.error(f"Erro ao validar login: {err}")
-        return False
-    finally:
-        cursor.close()
-        conexao.close()
-
+    cursor = conexao.cursor(buffered=True)  # <-- corrigido aqui
+    consulta = "SELECT * FROM Racha_Usuario WHERE Login = %s AND Senha = %s"
+    cursor.execute(consulta, (usuario, senha))
+    resultado = cursor.fetchone()
+    cursor.close()
+    conexao.close()
+    return resultado is not None
 
 
 
