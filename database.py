@@ -10,8 +10,7 @@ def conectar():
         host=st.secrets["mysql"]["host"],
         user=st.secrets["mysql"]["user"],
         password=st.secrets["mysql"]["password"],
-        database=st.secrets["mysql"]["database"],
-        charset=st.secrets["mysql"]["charset"]  # agora vai puxar "utf8mb4"
+        database=st.secrets["mysql"]["database"]
     )
 
 def validar_login(usuario, senha):
