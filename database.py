@@ -5,14 +5,7 @@ import bcrypt
 
    
  
-def conectar():
-    return mysql.connector.connect(
-        host=st.secrets["mysql"]["host"],
-        user=st.secrets["mysql"]["user"],
-        password=st.secrets["mysql"]["password"],
-        database=st.secrets["mysql"]["database"]
-    )
-
+ 
 def validar_login(usuario, senha):
     conexao = conectar()
     cursor = conexao.cursor(buffered=True)  # <-- corrigido aqui
