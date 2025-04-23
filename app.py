@@ -33,20 +33,11 @@ else:
     st.write("bcrypt está funcionando!")
     
     
-    
-    if st.button("Entrar"):
-        if validar_login(usuario, senha):
-            st.session_state.logado = True
-            st.session_state.usuario = usuario 
-            st.session_state.senha = senha 
-            st.rerun()
-        else:
-            st.error(f"Usuário ou senha inválido{usuario}{senha}")
-            
-    if st.button("Entrar"):
+  
+    if st.button("Entrar", key="botao_entrar"):
         if validar_login(usuario, senha):
             st.session_state.logado = True
             st.session_state.usuario = usuario
             st.rerun()
         else:
-            st.error("Usuário ou senha inválido.")
+           st.error(f"Usuário ou senha inválido{usuario}{senha}")        
