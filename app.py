@@ -42,3 +42,11 @@ else:
             st.rerun()
         else:
             st.error(f"Usuário ou senha inválido{usuario}{senha}")
+            
+    if st.button("Entrar"):
+        if validar_login(usuario, senha):
+            st.session_state.logado = True
+            st.session_state.usuario = usuario
+            st.rerun()
+        else:
+            st.error("Usuário ou senha inválido.")

@@ -9,8 +9,8 @@ def conectar():
         host=st.secrets["mysql"]["host"],
         user=st.secrets["mysql"]["user"],
         password=st.secrets["mysql"]["password"],
-        database=st.secrets["mysql"]["database"],
-        charset=st.secrets["mysql"]["charset"]
+        database=st.secrets["mysql"]["database"]
+
     )
      
  
@@ -19,8 +19,8 @@ def conectar():
 def validar_login(usuario, senha):
     conexao = conectar()
     cursor = conexao.cursor()
-    consulta = "SELECT Senha FROM Racha_Usuario WHERE Login = %s"
-    cursor.execute(consulta, (usuario,))
+    consulta = "SELECT * FROM Racha_Usuario WHERE Login = %s, Senha = %s"
+    cursor.execute(consulta, (usuario,senha))
     resultado = cursor.fetchone()
     cursor.close()
     conexao.close()
