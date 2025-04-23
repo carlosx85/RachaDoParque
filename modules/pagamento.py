@@ -3,7 +3,7 @@ from database import buscar_logins,buscar_anos,buscar_meses,buscar_dados_filtrad
 from datetime import datetime
 import pandas as pd
 import locale
-locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+
  
 st.subheader("Financeiro")
  
