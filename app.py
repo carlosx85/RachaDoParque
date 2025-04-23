@@ -26,12 +26,7 @@ else:
         unsafe_allow_html=True
     )
 
-    usuario = st.text_input("Usuário")
-    senha = st.text_input("Senha", type="password")
-
-    st.write("Host carregado do secrets:", st.secrets["mysql"]["host"])
-    st.write("bcrypt está funcionando!")
-    
+ 
     
     usuario = st.text_input("Usuário")
     senha = st.text_input("Senha", type="password")
