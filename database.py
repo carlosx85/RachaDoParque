@@ -13,9 +13,20 @@ def conectar():
         charset=st.secrets["mysql"]["charset"]
     )
      
-    
-
+ 
 def validar_login(usuario, senha):
+    conexao = conectar()
+    cursor = conexao.cursor(buffered=True)  # <-- corrigido aqui
+    consulta = "SELECT * FROM Racha_Usuarios WHERE Login = %s AND Senha = %s"
+    cursor.execute(consulta, (usuario, senha))
+    resultado = cursor.fetchone()
+    cursor.close()
+    conexao.close()
+    return resultado is not None
+
+   
+
+def validar_loginx(usuario, senha):
     try:
         conexao = conectar()
         cursor = conexao.cursor(buffered=True)
@@ -40,15 +51,6 @@ def validar_login(usuario, senha):
             
             
 
-def validar_login22(usuario, senha):
-    conexao = conectar()
-    cursor = conexao.cursor(buffered=True)  # <-- corrigido aqui
-    consulta = "SELECT * FROM Racha_Usuario WHERE Login = %s AND Senha = %s"
-    cursor.execute(consulta, (usuario, senha))
-    resultado = cursor.fetchone()
-    cursor.close()
-    conexao.close()
-    return resultado is not None
 
 
 
