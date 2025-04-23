@@ -31,6 +31,9 @@ else:
 
     st.write("Host carregado do secrets:", st.secrets["mysql"]["host"])
     st.write("bcrypt está funcionando!")
+    
+    
+    
     if st.button("Entrar"):
         if validar_login(usuario, senha):
             st.session_state.logado = True
@@ -38,4 +41,4 @@ else:
             st.session_state.senha = senha 
             st.rerun()
         else:
-            st.error("Usuário ou senha inválido")
+            st.error(f"Usuário ou senha inválido{usuario}{senha}")
