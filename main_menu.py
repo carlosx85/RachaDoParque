@@ -1,6 +1,6 @@
 import streamlit as st
 from modules.principal import show as principal_show 
-
+from modules.cadastro import show as cadastro_show 
 from modules.financeiro import show as financeiro_show
 
  
@@ -17,6 +17,9 @@ def show():
 
     if menu == "Principal":
         principal_show()
+
+    elif menu == "Cadastro":
+        cadastro_show()
 
     elif menu == "Financeiro":
         financeiro_show()
