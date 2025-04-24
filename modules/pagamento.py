@@ -11,7 +11,7 @@ from database import (
 
 st.subheader("Financeiro")
 
- 
+@st.cache_data
 def get_logins():
     return buscar_logins()
 
