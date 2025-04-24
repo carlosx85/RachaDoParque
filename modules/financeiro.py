@@ -4,7 +4,7 @@ from database import buscar_clientes_por_periodo
 from datetime import datetime
 
  
-
+@st.cache_data
 def show():
     
         # Pegar mês e ano atual

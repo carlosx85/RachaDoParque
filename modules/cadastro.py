@@ -2,7 +2,7 @@ import streamlit as st
 from database import inserir_cliente, buscar_cliente_por_id,inserir_racha_financeiro
 import streamlit.components.v1 as components
 
- 
+@st.cache_data
 def show():
     if not st.session_state.get("logado", False):
         st.warning("Acesso negado. Faça login para continuar.")
