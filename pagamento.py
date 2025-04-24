@@ -5,28 +5,14 @@ import pandas as pd
 
 st.subheader("Financeiro")
 
-# Aplicar cache nas funções que trazem dados fixos
-@st.cache_data
-def get_meses():
-    return buscar_meses()
-
-@st.cache_data
-def get_anos():
-    return buscar_anos()
-
-@st.cache_data
-def get_logins():
-    return buscar_logins()
-
 def show():
     mes_atual = datetime.now().month
     ano_atual = datetime.now().year
 
-    # Usar versões em cache
-    meses = get_meses()
-    anos = get_anos()
-    dados_logins = get_logins()
+    meses = buscar_meses()
+    anos = buscar_anos()
 
+    dados_logins = buscar_logins()  # (Seq, Login, Nome)
     opcoes = [f"{login} ({nome} - {seq})" for seq, login, nome in dados_logins]
     selecionado = st.selectbox("Selecione o Jogador:", opcoes)
 
