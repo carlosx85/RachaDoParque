@@ -10,6 +10,8 @@ st.write("Receita:", f"R$ {Receita:,.2f}".replace(",", "X").replace(".", ",").re
 st.write("Despesa:", f"R$ {Despesa:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
 st.write("Saldo:", f"R$ {Saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
 
+  
+
 
     
     
