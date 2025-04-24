@@ -58,6 +58,8 @@ def show():
     valor = st.number_input("Digite o Valor (exato):", min_value=0.0)
 
     if st.button("Efetuar o pagamento"):
+        st.cache_data.clear()
+        st.experimental_rerun()
         atualizar_valor(seq, mes, ano, valor, tipo)
         st.success("✅ Pagamento atualizado com sucesso!")
 
