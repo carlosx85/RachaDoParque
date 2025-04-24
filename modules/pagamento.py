@@ -75,8 +75,6 @@ def show():
         # Remove o índice completamente
         st.dataframe(df_usuario.reset_index(drop=True), use_container_width=True)
 
-        # Exibe o DataFrame
-        st.dataframe(df_usuario, use_container_width=True)
 
     else:
         st.warning("")
