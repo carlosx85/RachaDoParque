@@ -130,7 +130,7 @@ def buscar_clientes_por_periodo(ano, mes):
 def buscar_logins():
     conexao = conectar()
     cursor = conexao.cursor()
-    cursor.execute("SELECT DISTINCT Seq, Login, Nome FROM Racha_Usuario ORDER BY Seq, Login, Nome")
+    cursor.execute("SELECT DISTINCT Seq, Login, Nome FROM Racha_Financeiro_Geral ORDER BY Seq, Login, Nome")
     logins = cursor.fetchall()  # Agora pega Seq, Login e Nome juntos
     cursor.close()
     conexao.close()
