@@ -1,10 +1,7 @@
 import streamlit as st
 
 def show():
-    st.subheader("Resumo Geral")
-    st.write("Aqui vai o formulário de cadastro.")
-    
-    
+    st.subheader("Resumo Geral")    
     
     col1, col2 = st.columns(2)
 
@@ -13,8 +10,8 @@ def show():
 
 
     with col2:
-        st.write("Produção - 12/2022")
-        st.metric("",f"{2,2:}", "")  
+        st.write("Produção - 12/2022",f"{2,2:}")
+  
 
 
     
