@@ -27,8 +27,8 @@ def show():
     mes_atual = datetime.now().month
     ano_atual = datetime.now().year
 
-    meses = list(range(1, 12))
-    anos = list(range(2025, 2030))
+    meses = get_meses()
+    anos = get_anos()
     dados_logins = get_logins()
 
     if not dados_logins:
