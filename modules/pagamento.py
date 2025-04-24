@@ -8,7 +8,7 @@ import locale
 st.subheader("Financeiro")
  
 
-@st.cache_data
+
 def show():
     
     # Pegar mês e ano atual

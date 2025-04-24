@@ -4,7 +4,7 @@ from datetime import datetime
 import pandas as pd
  
 st.subheader("Financeiro")
- @st.cache_data
+ 
 def show():
     
     # Pegar mês e ano atual
@@ -22,9 +22,7 @@ def show():
 
     
             
-    # Buscar os dados
-    dados_logins = buscar_logins()  # Lista de tuplas: (Seq, Login, Nome)
-
+    
     # Formata" ",r as opções para exibição
     opcoes =  [ " ","Lavagem dos Coletes", "Compra de Bola", "Compra de Coletes", "Material de Farmácia"]
     # Criar o selectbox
