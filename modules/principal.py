@@ -3,7 +3,7 @@ import streamlit as st
 
  
 def show():
-    Receita = 350.00
+    Receita = 35.00
     Despesa = 150.00
     Saldo = Receita - Despesa
     
