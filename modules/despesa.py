@@ -47,3 +47,19 @@ def show():
         else:
             atualizar_valor_despesa(mes, ano, tipo_despesa, descricao, valor)
             st.success("✅ Pagamento efetuado com sucesso!")
+            
+            
+ 
+        
+            usuario = listarpagamento() 
+    
+            # Converte lista de tuplas em DataFrame
+            df_usuario = pd.DataFrame( usuario,columns=["Mes", "Ano","Valor", "tipodespesa","Descricao"])
+
+            # Formata ValorPago como moeda brasileira
+            df_usuario["Valor"] = df_usuario["Valor"].apply(
+                lambda x: f"R$ {x:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+            )
+
+            # Remove o índice completamente
+            st.dataframe(df_usuario.reset_index(drop=True), use_container_width=True)
