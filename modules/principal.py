@@ -1,8 +1,8 @@
 import streamlit as st
 
 
-Receita = 350,00
-Despesa = 150,00
+Receita = 350
+Despesa = 150
 
 Saldo= Receita - Despesa
 
