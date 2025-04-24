@@ -26,12 +26,26 @@ def show():
     meses = get_meses()
     anos = get_anos()
     dados_logins = get_logins()
+    
+    
+    @st.cache_data
+    def get_logins():
+        return buscar_logins()
 
-    opcoes = [f"{login} ({nome} - {seq})" for seq, login, nome in dados_logins]
-    selecionado = st.selectbox("Selecione o Jogador:", opcoes)
+    dados_logins = get_logins()
 
-    indice = opcoes.index(selecionado)
-    seq, login_real, nome = dados_logins[indice]
+    if not dados_logins:
+        st.warning("⚠️ Nenhum login encontrado.")
+    else:
+        # Garante estrutura correta
+        try:
+            opcoes = [f"{login} ({nome} - {seq})" for seq, login, nome in dados_logins]
+            selecionado = st.selectbox("Selecione o Jogador:", opcoes)
+        except Exception as e:
+            st.error(f"Erro ao montar lista: {e}")
+            st.write("Dados brutos:", dados_logins)
+
+ 
 
     col1, col2, _ = st.columns([2, 4, 6])
     with col1:
