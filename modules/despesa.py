@@ -48,21 +48,25 @@ def show():
     descricao = st.text_input("Descrição", max_chars=100)
 
     if st.button("Efetuar o pagamento"):
-        atualizar_valor_despesa(mes, ano, tipoDespesa, descricao , valor)
-        st.success("✅ Pagamento efetuado com sucesso!")
+        if selecionado.strip() == ""or  valor.strip() == "":
+            st.error("O campo 'Nome/Apelido' são obrigatório.")
         
-        usuario = listarpagamento() 
- 
-        # Converte lista de tuplas em DataFrame
-        df_usuario = pd.DataFrame( usuario,columns=["Mes", "Ano","Valor", "tipodespesa","Descricao"])
+        else:
+            atualizar_valor_despesa(mes, ano, tipoDespesa, descricao , valor)
+            st.success("✅ Pagamento efetuado com sucesso!")
+            
+            usuario = listarpagamento() 
+    
+            # Converte lista de tuplas em DataFrame
+            df_usuario = pd.DataFrame( usuario,columns=["Mes", "Ano","Valor", "tipodespesa","Descricao"])
 
-        # Formata ValorPago como moeda brasileira
-        df_usuario["Valor"] = df_usuario["Valor"].apply(
-            lambda x: f"R$ {x:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
-        )
+            # Formata ValorPago como moeda brasileira
+            df_usuario["Valor"] = df_usuario["Valor"].apply(
+                lambda x: f"R$ {x:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+            )
 
-        # Remove o índice completamente
-        st.dataframe(df_usuario.reset_index(drop=True), use_container_width=True)
+            # Remove o índice completamente
+            st.dataframe(df_usuario.reset_index(drop=True), use_container_width=True)
 
  
 
