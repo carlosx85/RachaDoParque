@@ -3,9 +3,6 @@ import streamlit as st
 
  
  
-st.subheader("This is a subheader with a divider", divider="gray")
-st.subheader("Situação geral do financeiro ", divider=True)
-
 
 
  
@@ -13,6 +10,11 @@ def show():
     Receita = 350.00
     Despesa = 150.00
     Saldo = Receita - Despesa
+    
+    st.subheader("This is a subheader with a divider", divider="gray")
+    st.subheader("Situação geral do financeiro ", divider=True)
+
+
     
 
  
