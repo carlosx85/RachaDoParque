@@ -1,4 +1,5 @@
 import streamlit as st
+import database
 
 
  
@@ -8,7 +9,13 @@ import streamlit as st
  
 def show():
     Receita = 30.00
-    Despesa = 150.00
+    dados =  
+    if dados and dados[0][0] is not None:
+        Despesa = dados[0][0]
+    else:
+        Despesa = 0.0
+        
+        
     Saldo = Receita - Despesa
      
     st.subheader("Situação do Financeiro ✍🏻", divider=True)
