@@ -11,7 +11,7 @@ def show():
     Despesa = 150.00
     Saldo = Receita - Despesa
      
-    st.subheader("Situação geral do financeiro ", divider=True)
+    st.subheader("Situação do Financeiro ✍🏻", divider=True)
   
     def formatar(valor):
         return f"R$ {valor:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
