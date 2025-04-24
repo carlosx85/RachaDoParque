@@ -12,12 +12,12 @@ def show():
     col1, col2 = st.columns(2)
 
     with col1:  
-        st.write("Receita",f"{Receita:}")
-        st.write("Despesa",f"{Despesa:}")
+        st.write("Receita",f"{Receita}")
+        st.write("Despesa",f"{Despesa}")
 
 
     with col2:
-        st.write("Produção - 12/2022",f"{Saldo:}")
+        st.write("Produção - 12/2022",f"{Saldo}")
   
 
 
