@@ -156,7 +156,7 @@ def buscar_por_login(login):
 def buscar_meses():
     conexao = conectar()
     cursor = conexao.cursor()
-    cursor.execute("SELECT DISTINCT Mes FROM Racha_Financeiro ORDER BY Mes;")
+    cursor.execute("SELECT DISTINCT Mes FROM Racha_Periodo ORDER BY Mes;")
     meses = [row[0] for row in cursor.fetchall()]
     cursor.close()
     conexao.close()
@@ -166,7 +166,7 @@ def buscar_meses():
 def buscar_anos():
     conexao = conectar()
     cursor = conexao.cursor()
-    cursor.execute("SELECT DISTINCT Ano FROM Racha_Financeiro ORDER BY Ano Asc;")
+    cursor.execute("SELECT DISTINCT Ano FROM Racha_Periodo ORDER BY Ano Asc;")
     anos = [row[0] for row in cursor.fetchall()]
     cursor.close()
     conexao.close()
@@ -278,8 +278,6 @@ def atualizar_valor_despesa(mes, ano, tipoDespesa, descricao, valor):
         return None
 
 
-
-
 def listarpagamento():
     conexao = conectar()
     cursor = conexao.cursor()
@@ -289,6 +287,18 @@ def listarpagamento():
         Order by Data_Cad desc ;
     """, ())
     dados = cursor.fetchall()
+    cursor.close()
+    conexao.close()
+    return dados
+
+
+def resumodespesa():
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute("""
+        SELECT SUM(Valor) AS Despesa  FROM Racha_Despesa;
+    """, ())
+    dados = cursor.fetchone()
     cursor.close()
     conexao.close()
     return dados
