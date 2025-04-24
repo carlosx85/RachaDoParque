@@ -43,7 +43,7 @@ def show():
             ano = st.selectbox("Ano", anos)
 
     # Input do valor
-    valor = st.number_input("Digite o Valor da Despesa  :", min_value=0.0 )
+    valor = st.number_input("Digite o Valor da Despesa  :" )
     
     descricao = st.text_input("Descrição", max_chars=100)
 
