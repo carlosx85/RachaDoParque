@@ -48,8 +48,8 @@ def show():
     descricao = st.text_input("Descrição", max_chars=100)
 
     if st.button("Efetuar o pagamento"):
-        if selecionado.strip() == ""or  valor.strip() == "":
-            st.error("O campo 'Nome/Apelido' são obrigatório.")
+        if selecionado.strip() == "" or  valor.strip() == "":
+            st.error("O campo 'Tipo Pagamento/Valor' são obrigatório.")
         
         else:
             atualizar_valor_despesa(mes, ano, tipoDespesa, descricao , valor)
