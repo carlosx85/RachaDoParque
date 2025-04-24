@@ -48,7 +48,7 @@ def show():
     descricao = st.text_input("Descrição", max_chars=100)
 
     if st.button("Efetuar o pagamento"):
-        if selecionado.strip() == "" or  valor.strip() == "":
+        if selecionado.strip() == ""  :
             st.error("O campo 'Tipo Pagamento/Valor' são obrigatório.")
         
         else:
