@@ -4,6 +4,14 @@ from datetime import datetime
 import pandas as pd
 import locale
 
+import locale
+
+try:
+    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+except locale.Error:
+    # fallback para evitar travar a aplicação na nuvem se não estiver disponível
+    locale.setlocale(locale.LC_ALL, '')
+
  
 st.subheader("Financeiro")
  
