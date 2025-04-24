@@ -14,11 +14,15 @@ def show():
 
   
 
-    a = st.columns(1)
-    c, d = st.columns(1)
-
-    a.metric("Saldo", f"R$ {Saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") , border=True)
     
+    
+
+    # Mostrando como métrica
+    st.metric(
+        label="💰 Saldo",
+        value=f"R$ {Saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+)
+    c, d = st.columns(2)
     c.metric("Receita", f"R$ {Receita:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") , border=True)
     d.metric("Despesa", f"R$ {Despesa:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") , border=True)
     
