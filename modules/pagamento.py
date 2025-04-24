@@ -46,6 +46,8 @@ def show():
             st.write("Dados brutos:", dados_logins)
 
  
+    indice = opcoes.index(selecionado)
+    seq, login_real, nome = dados_logins[indice]
 
     col1, col2, _ = st.columns([2, 4, 6])
     with col1:
