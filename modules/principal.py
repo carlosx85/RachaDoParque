@@ -29,13 +29,13 @@ def show():
         cor_saldo = "off"      # Cinza
 
     col1, col2, col3 = st.columns(3)
-
+    
     with col1:
-        st.metric("📈 Receita", formatar(Receita), border=True)
+        st.metric("💰 Saldo", formatar(Saldo), delta=delta, delta_color=cor_saldo, border=True)
 
     with col2:
-        st.metric("📉 Despesa", formatar(Despesa), border=True)
+        st.metric("📈 Receita", formatar(Receita), border=True)
 
     with col3:
-        st.metric("💰 Saldo", formatar(Saldo), delta=delta, delta_color=cor_saldo, border=True)
+        st.metric("📉 Despesa", formatar(Despesa), border=True)
 
