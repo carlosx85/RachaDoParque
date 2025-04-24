@@ -1,5 +1,5 @@
 import streamlit as st
-from database import buscar_logins,buscar_anos,buscar_meses,buscar_logins,atualizar_valor_despesa,listarpagamento
+from database import buscar_anos,buscar_meses,atualizar_valor_despesa,listarpagamento
 from datetime import datetime
 import pandas as pd
  
