@@ -1,86 +1,64 @@
 import streamlit as st
-from database import buscar_logins,buscar_anos,buscar_meses,buscar_logins,atualizar_valor,buscar_usuario_por_seq1
+from database import buscar_logins, buscar_anos, buscar_meses, atualizar_valor, buscar_usuario_por_seq1
 from datetime import datetime
 import pandas as pd
-import locale
 
- 
 st.subheader("Financeiro")
- 
+
+# Caches para evitar chamadas repetidas
+@st.cache_data
+def carregar_meses():
+    return buscar_meses()
+
+@st.cache_data
+def carregar_anos():
+    return buscar_anos()
+
+@st.cache_data
+def carregar_logins():
+    return buscar_logins()
+
+# Formatação alternativa para moeda (sem locale)
+def formatar_moeda(valor):
+    return f"R$ {valor:,.2f}".replace(",", "v").replace(".", ",").replace("v", ".")
 
 
 def show():
-    
-    # Pegar mês e ano atual
     mes_atual = datetime.now().month
     ano_atual = datetime.now().year
 
-    # Listas de opções
-    meses = list(range(1, 13))
-    anos = list(range(2025, 2031))
-    
-    # Carregar opções 
-    meses = buscar_meses()
-    anos = buscar_anos()
-    seq = buscar_anos()
+    # Carregar dados com cache
+    meses = carregar_meses()
+    anos = carregar_anos()
+    dados_logins = carregar_logins()
 
-    
-            
-    # Buscar os dados
-    dados_logins = buscar_logins()  # Lista de tuplas: (Seq, Login, Nome)
-
-    # Formatar as opções para exibição
-    opcoes =  [f"{login} ({nome} - {seq})" for seq, login, nome in dados_logins]
-    # Criar o selectbox
+    # Formatar opções de login
+    opcoes = [f"{login} ({nome} - {seq})" for seq, login, nome in dados_logins]
     selecionado = st.selectbox("Selecione o Jogador:", opcoes)
 
-    # Recuperar os dados reais com base na seleção
+    # Recuperar dados reais da seleção
     indice = opcoes.index(selecionado)
     seq, login_real, nome = dados_logins[indice]
 
-    # Criar colunas para mês e ano
+    # Seleção de mês e ano
     col1, col2, _ = st.columns([2, 4, 6])
     with col1:
-        mes = st.selectbox("Mês", meses, index=meses.index(mes_atual))
+        mes = st.selectbox("Mês", meses, index=meses.index(mes_atual) if mes_atual in meses else 0)
     with col2:
-        if ano_atual in anos:
-            ano = st.selectbox("Ano", anos, index=anos.index(ano_atual))
-        else:
-            ano = st.selectbox("Ano", anos)
-            
-        # Formata" ",r as opções para exibição
-    tipopagamento =  [ " ","Pago", "Em Negociacao"]
-    # Criar o selectbox
-    tipo = st.selectbox("Selecione o Status do Pagamento:", tipopagamento)
+        ano = st.selectbox("Ano", anos, index=anos.index(ano_atual) if ano_atual in anos else 0)
 
-    # Input do valor
+    tipo = st.selectbox("Selecione o Status do Pagamento:", [" ", "Pago", "Em Negociacao"])
+
     valor = st.number_input("Digite o Valor (exato):", min_value=0.0)
 
     if st.button("Efetuar o pagamento"):
-        atualizar_valor(seq, mes, ano, valor,tipo)
+        atualizar_valor(seq, mes, ano, valor, tipo)
         st.success("✅ Pagamento atualizado com sucesso!")
-        
 
-        # Buscar e exibir o usuário atualizado
         usuario = buscar_usuario_por_seq1(seq)
-        
- 
-        # Converte lista de tuplas em DataFrame
-        df_usuario = pd.DataFrame(usuario, columns=["Seq", "Login",  "Mês", "Ano", "Pago_SN", "ValorPago"])
-
+        df_usuario = pd.DataFrame(usuario, columns=["Seq", "Login", "Mês", "Ano", "Pago_SN", "ValorPago"])
         df_usuario["ValorPago"] = df_usuario["ValorPago"].apply(
-            lambda x: locale.currency(x, grouping=True) if pd.notnull(x) and isinstance(x, (int, float)) else "R$ 0,00"
+            lambda x: formatar_moeda(x) if pd.notnull(x) and isinstance(x, (int, float)) else "R$ 0,00"
         )
 
-        # Remove o índice completamente
         st.dataframe(df_usuario.reset_index(drop=True), use_container_width=True)
-
-        # Exibe o DataFrame
-        st.dataframe(df_usuario, use_container_width=True)
-
-    else:
-        st.warning("")
-
-
-        
-        
