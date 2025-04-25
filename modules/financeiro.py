@@ -54,7 +54,7 @@ def show():
                 obs_str = f"({obs})" if obs not in [None, "None", ""] else ""
                 
                 st.markdown(f"""
-                    <div style="font-size: 12px;">
+                    <div style="font-size: 15px;">
                         <b>{i}. {login} ({status})</b> {situacao} {formatar_moeda(valor)} {obs_str}
                     </div>
                 """, unsafe_allow_html=True)
