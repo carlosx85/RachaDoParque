@@ -56,9 +56,11 @@ def show():
     
     tipo = st.selectbox("Selecione o Status do Pagamento:", tipopagamento)
 
+    obs = st.text_input("Obs", max_chars=100)
+    
     valor = st.number_input("Digite o Valor (exato):", min_value=0.0)
     
-    obs = st.text_input("Obs", max_chars=100)
+   
 
     if st.button("Efetuar o pagamento"):
         st.cache_data.clear()      
