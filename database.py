@@ -215,7 +215,7 @@ def atualizar_valor(seq, mes, ano, valor, tipo):
         SET ValorPago = %s, PAgo_Sn = %s, Data_Cad = now()
         WHERE Seq = %s AND Mes = %s AND Ano = %s;
     """, (valor, tipo, seq, mes, ano))
-    print("Função atualizar_valor foi chamada")
+    
     conexao.commit()
     cursor.close()
     conexao.close()
