@@ -302,3 +302,17 @@ def resumodespesa():
     conexao.close()
     return dados
 
+def resumoreceita():
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute("""
+        SELECT SUM(ValorPago) AS Receita FROM Racha_Financeiro;
+    """, ())
+    dados = cursor.fetchone()
+    cursor.close()
+    conexao.close()
+    return dados
+
+
+
+
