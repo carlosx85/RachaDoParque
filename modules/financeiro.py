@@ -62,7 +62,7 @@ def show():
 
         with col2:
             st.markdown(
-                f"<div style='font-size: 12px;'>Despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + "</div>",
+                f"<div style='font-size: 12px; text-align: left;' >Despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + "</div>",
                 unsafe_allow_html=True
             )
 
