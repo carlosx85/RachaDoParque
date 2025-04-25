@@ -39,6 +39,9 @@ def show():
             <h5 style="margin: 0;">Racha do Parque (Financeiro)</h5><br>
             <h6 style="margin: 0;">{mes} {ano}</h6><br>
         </div>
+        <div style="font-size: 13px;">
+        <b> {mes} ({status})</b> {ano}  
+        </div>
         <hr style="margin-top: 5px; margin-bottom: 15px;">
         """
         st.markdown(header_html, unsafe_allow_html=True)       
