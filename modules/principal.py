@@ -37,8 +37,10 @@ def show():
         st.metric("💰 Saldo", formatar(saldo), delta=delta, delta_color=cor_saldo, border=True)
 
     with col2:
-        st.metric("💰 Receita", formatar(totalx), delta=delta, delta_color=cor_saldo, border=True)
+        st.metric("📈 Receita",  formatar(totalx), delta=delta, delta_color=cor_saldo, border=True)
 
     with col3:
-        st.metric("💰 Despesa", formatar(total), delta=delta, delta_color=cor_saldo, border=True)
+        st.metric("📉 Despesa", formatar(total), delta=delta, delta_color=cor_saldo, border=True)
+        
+    
 
