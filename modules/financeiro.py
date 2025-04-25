@@ -49,14 +49,16 @@ def show():
         
         </div>
         <div style="font-size: 13px;">
-        <b>Periodo: {mes}/{ano}</b>  {totalx:,.2f} {total:,.2f}
+        <b>Periodo: {mes}/{ano}</b>  (f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")) {total:,.2f}
         </div>
         <hr style="margin-top: 5px; margin-bottom: 15px;">
         """
         st.markdown(header_html, unsafe_allow_html=True)       
         
         
-    
+        st.write(f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+        st.write(f"Despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+   
         
         
         try:
