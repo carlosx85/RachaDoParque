@@ -29,7 +29,6 @@ def show():
 
         # Selectbox exibindo só os textos
         opcao_escolhida = st.selectbox("Selecione o Tipo de Status do Jogador:", list(opcoes.keys()))
-        
 
         # Pega o valor real que você quer usar (N ou D)
         StatusdePagamento = opcoes[opcao_escolhida]

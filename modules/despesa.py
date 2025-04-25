@@ -63,3 +63,4 @@ def show():
 
             # Remove o índice completamente
             st.dataframe(df_usuario.reset_index(drop=True), use_container_width=True)
+     
