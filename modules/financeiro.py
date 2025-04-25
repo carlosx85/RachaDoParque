@@ -40,6 +40,8 @@ def show():
                 return
 
             st.success(f"{len(dados)} registro(s) encontrado(s).")
+            
+def show():
 
             for i, item in enumerate(dados, start=1):
                 seq = item.get("Seq", "—")
