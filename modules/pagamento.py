@@ -53,6 +53,7 @@ def show():
         ano = st.selectbox("Ano", anos, index=anos.index(ano_atual) if ano_atual in anos else 0)
 
     tipopagamento = [" ", "Pago", "Em Negociacao"]
+    
     tipo = st.selectbox("Selecione o Status do Pagamento:", tipopagamento)
     
     obs = st.text_input("Obs:", max_chars=100)
@@ -60,7 +61,7 @@ def show():
     valor = st.number_input("Digite o Valor (exato):", min_value=0.0)
 
     if st.button("Efetuar o pagamento"):
-        st.cache_data.clear()      
+             
         atualizar_valor(seq, mes, ano, obs, valor, tipo)
         st.success("✅ Pagamento atualizado com sucesso!")
 
