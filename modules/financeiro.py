@@ -53,7 +53,7 @@ def show():
 
                 st.markdown(f"""
                     <div style="font-size: 12px;">
-                        <b>{i}. {login} ({status})</b> {situacao} {formatar_moeda(valor) {situacao}}
+                        <b>{i}. {login} ({status})</b> {situacao} {formatar_moeda(valor)} {Obs}
                     </div>
                 """, unsafe_allow_html=True)
 
