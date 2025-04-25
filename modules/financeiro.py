@@ -40,7 +40,7 @@ def show():
             <h6 style="margin: 0;">{mes} {ano}</h6><br>
         </div>
         <div style="font-size: 13px;">
-        <b> {mes} ({status})</b> {ano}  
+        <b> {mes}{ano}  </b> 
         </div>
         <hr style="margin-top: 5px; margin-bottom: 15px;">
         """
