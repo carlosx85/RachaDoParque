@@ -44,6 +44,7 @@ def show():
             for i, item in enumerate(dados, start=1):
                 seq = item.get("Seq", "—")
                 login = item.get("Login", "—")
+                obs = item.get("Obs", "—")
                 status = item.get("StatusDePagamento", "")
                 pago = item.get("Pago_SN", "—")
                 valor = item.get("ValorPago") or 0
@@ -52,7 +53,7 @@ def show():
 
                 st.markdown(f"""
                     <div style="font-size: 12px;">
-                        <b>{i}. {login} ({status})</b> {situacao} {formatar_moeda(valor)}
+                        <b>{i}. {login} ({status})</b> {situacao} {formatar_moeda(valor)} {obs}
                     </div>
                 """, unsafe_allow_html=True)
 
