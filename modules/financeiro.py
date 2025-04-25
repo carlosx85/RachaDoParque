@@ -37,7 +37,7 @@ def show():
         <div style="display: flex; align-items: center; padding: 10px 0 5px 0;">
             <img src="https://boladecapotao.com/img/Racha_Logo_P.png" width="50" style="margin-right: 15px;">
             <h5 style="margin: 0;">Racha do Parque  (Financeiro)</h5><br>
-            <h5 style="margin: 0;">Periodo {mes} {ano}</h5><br>
+            <h6 style="margin: 0;">Periodo {mes} {ano}</h6><br>
         </div>
         <hr style="margin-top: 5px; margin-bottom: 15px;">
         """
