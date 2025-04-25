@@ -51,11 +51,11 @@ def show():
 
                 situacao = "✅" if pago == "Pago" else "🕓" if pago == "Em Negociacao" else "❌"
  
-                obs = obs if obs not in [None, "None", ""] else ""
+                obs_str = f"({obs})" if obs not in [None, "None", ""] else ""
                 
                 st.markdown(f"""
                     <div style="font-size: 12px;">
-                        <b>{i}. {login} ({status})</b> {situacao} {formatar_moeda(valor)} {obs}
+                        <b>{i}. {login} ({status})</b> {situacao} {formatar_moeda(valor)} {obs_str}
                     </div>
                 """, unsafe_allow_html=True)
 
