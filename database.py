@@ -201,23 +201,22 @@ def atualizar_pagamentk(cliente_id, mes, ano):
     
     
     
-def atualizar_valor(seq, mes, ano, valor,tipo,obs):
+def atualizar_valor(seq, mes, ano, valor,tipo):
     # Garantir que os valores não sejam listas
     seq = int(seq[0]) if isinstance(seq, list) else int(seq)
     mes = int(mes[0]) if isinstance(mes, list) else int(mes)
     ano = int(ano[0]) if isinstance(ano, list) else int(ano)
     valor = int(valor[0]) if isinstance(valor, list) else int(valor)
-    tipo  = tipo
-    obs   = obs 
+    tipo =tipo
 
     conexao = conectar()
     cursor = conexao.cursor()
 
     cursor.execute("""
         UPDATE Racha_Financeiro
-        SET ValorPago = %s, Obs =%s,PAgo_Sn =%s, Data_Cad = now()
+        SET ValorPago = %s, PAgo_Sn =%s, Data_Cad = now()
         WHERE Seq = %s AND Mes = %s AND Ano = %s;
-    """, (seq, mes, ano, valor, tipo, obs))
+    """, (seq, mes, ano,valor, tipo ))
 
     conexao.commit()
     cursor.close()
@@ -242,7 +241,7 @@ def buscar_usuario_por_seq1(seq):
     conexao = conectar()
     cursor = conexao.cursor()
     cursor.execute("""
-        SELECT Seq, Login, Mes, Ano, Pago_SN, ValorPago,Obs
+        SELECT Seq, Login, Mes, Ano, Pago_SN, ValorPago
         FROM Racha_Financeiro_Geral
         WHERE Seq = %s 
         Order by Data_Cad desc, Ano Asc, Mes Asc;
