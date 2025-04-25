@@ -40,7 +40,7 @@ def show():
         
         </div>
         <div style="font-size: 13px;">
-        <b>Periodo: {mes}/{ano}</b> <b>Receita: 250,00 Despesa: 250,00 </b> 
+        <b>Periodo: {mes}/{ano}</b>    <b>Receita: 250,00      Despesa: 250,00 </b> 
         </div>
         <hr style="margin-top: 5px; margin-bottom: 15px;">
         """
