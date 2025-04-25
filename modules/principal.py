@@ -1,10 +1,13 @@
 import streamlit as st
- 
+from database import resumodespesa
  
 def show():
-    Receita = 30.00
-    Despesa = 22
-    Saldo = Receita - Despesa
+    
+    despesa = resumodespesa()
+    total = despesa[0] if despesa and despesa[0] is not None else 0
+    st.write(f"Total de despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+    Receita = 30.00 
+    Saldo = Receita - despesa
      
     st.subheader("Situação do Financeiro ✍🏻", divider=True)
   
