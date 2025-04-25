@@ -61,7 +61,7 @@ def show():
     if st.button("Efetuar o pagamento"):
         st.cache_data.clear()      
         atualizar_valor(seq, mes, ano, valor, tipo)
-        st.success(f"✅ Pagamento atualizado com sucesso!{seq}")
+        st.success(f"✅ Pagamento atualizado com sucesso!")
 
         usuario = buscar_usuario_por_seq1(seq)
         df_usuario = pd.DataFrame(usuario, columns=["Seq", "Login", "Mês", "Ano", "Pago_SN", "ValorPago"])
