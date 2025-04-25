@@ -37,9 +37,7 @@ def show():
 
             if not dados:
                 st.warning("Nenhum dado encontrado.")
-                return
-
-            st.success(f"{len(dados)} registro(s) encontrado(s).")
+                return          
             
            
             
