@@ -61,7 +61,7 @@ def show():
 
     if st.button("Efetuar o pagamento"):
         st.cache_data.clear()      
-        atualizar_valor(seq, mes, ano, valor, tipo,obs)
+        atualizar_valor(seq, mes, ano, valor, tipo, obs)
         st.success("✅ Pagamento atualizado com sucesso!")
 
         usuario = buscar_usuario_por_seq1(seq)
