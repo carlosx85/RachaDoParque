@@ -50,7 +50,9 @@ def show():
                 valor = item.get("ValorPago") or 0
 
                 situacao = "✅" if pago == "Pago" else "🕓" if pago == "Em Negociacao" else "❌"
-
+ 
+                obs = obs if obs not in [None, "None", ""] else ""
+                
                 st.markdown(f"""
                     <div style="font-size: 12px;">
                         <b>{i}. {login} ({status})</b> {situacao} {formatar_moeda(valor)} {obs}
