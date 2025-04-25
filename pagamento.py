@@ -53,20 +53,17 @@ def show():
         ano = st.selectbox("Ano", anos, index=anos.index(ano_atual) if ano_atual in anos else 0)
 
     tipopagamento = [" ", "Pago", "Em Negociacao"]
-    
     tipo = st.selectbox("Selecione o Status do Pagamento:", tipopagamento)
-    
-    obs = st.text_input("Obs:", max_chars=100)
 
     valor = st.number_input("Digite o Valor (exato):", min_value=0.0)
 
     if st.button("Efetuar o pagamento"):
-             
-        atualizar_valor(seq, mes, ano, valor, tipo, obs)
+        st.cache_data.clear()      
+        atualizar_valor(seq, mes, ano, valor, tipo)
         st.success("✅ Pagamento atualizado com sucesso!")
 
         usuario = buscar_usuario_por_seq1(seq)
-        df_usuario = pd.DataFrame(usuario, columns=["Seq", "Login", "Mês", "Ano", "Pago_SN", "ValorPago", "Obs"])
+        df_usuario = pd.DataFrame(usuario, columns=["Seq", "Login", "Mês", "Ano", "Pago_SN", "ValorPago"])
 
         df_usuario["ValorPago"] = df_usuario["ValorPago"].apply(
             lambda x: f"R$ {x:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
