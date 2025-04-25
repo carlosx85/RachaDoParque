@@ -56,7 +56,7 @@ def show():
 
         with col1:
             st.markdown(
-                f"<div style='font-size: 12px;'>Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + ""Despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + "</div>",
+                f"<div style='font-size: 12px;'>Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + "Despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + "</div>",
                 unsafe_allow_html=True
             )
 
