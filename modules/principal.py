@@ -1,5 +1,5 @@
 import streamlit as st
-from database import resumodespesa
+from database import resumodespesa,resumoreceita
  
 def show():
     
