@@ -212,9 +212,9 @@ def atualizar_valor(seq, mes, ano, valor, tipo, obs):
 
     cursor.execute("""
         UPDATE Racha_Financeiro
-        SET ValorPago = %s, PAgo_Sn = %s, Data_Cad = now()
+        SET ValorPago = %s, PAgo_Sn = %s, Obs = %s, Data_Cad = now()
         WHERE Seq = %s AND Mes = %s AND Ano = %s;
-    """, (valor, tipo, seq, mes, ano, obs))
+    """, (valor, tipo, obs, seq, mes, ano))
     
     conexao.commit()
     cursor.close()
