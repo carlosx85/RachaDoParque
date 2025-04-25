@@ -49,13 +49,16 @@ def show():
         
         </div>
         <div style="font-size: 13px;">
-        <b>Periodo: {mes}/{ano}</b>    <b>Receita: R$ "Total de despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")      Despesa: R$ 250,00 </b> 
+        <b>Periodo: {mes}/{ano}</b>   
         </div>
         <hr style="margin-top: 5px; margin-bottom: 15px;">
         """
         st.markdown(header_html, unsafe_allow_html=True)       
         
-         
+        st.write(f"Total de despesas: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+        st.write(f"Total de despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+   
+        
         
         try:
             dados = buscar_clientes_por_periodo(ano, mes)
