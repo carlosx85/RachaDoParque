@@ -62,6 +62,15 @@ def show():
 
     if st.button("Efetuar o pagamento"):
              
-        atualizar_valor(seq, mes, ano, valor,tipo,obs)
+        atualizar_valor(seq, mes, ano, valor, tipo, obs)
         st.success("✅ Pagamento atualizado com sucesso!")
 
+        usuario = buscar_usuario_por_seq1(seq)
+        df_usuario = pd.DataFrame(usuario, columns=["Seq", "Login", "Mês", "Ano", "Pago_SN", "ValorPago"])
+
+        df_usuario["ValorPago"] = df_usuario["ValorPago"].apply(
+            lambda x: f"R$ {x:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+            if pd.notnull(x) else "R$ 0,00"
+        )
+
+        st.dataframe(df_usuario.reset_index(drop=True), use_container_width=True)
