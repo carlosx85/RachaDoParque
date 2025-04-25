@@ -2,7 +2,18 @@ import streamlit as st
 import pandas as pd
 from database import buscar_clientes_por_periodo
 from datetime import datetime
+from database import resumodespesa,resumoreceita
 
+despesa = resumodespesa()
+total = despesa[0] if despesa and despesa[0] is not None else 0
+st.write(f"Total de despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+    
+receita = resumoreceita()
+totalx = receita[0] if receita and receita[0] is not None else 0
+st.write(f"Total de despesas: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+    
+    
+    
 # Cache para listas fixas
 @st.cache_data
 def carregar_meses():
