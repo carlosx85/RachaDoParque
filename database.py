@@ -201,7 +201,7 @@ def atualizar_pagamentk(cliente_id, mes, ano):
     
     
     
-def atualizar_valor(seq, mes, ano, valor, tipo):
+def atualizar_valor(seq, mes, ano, valor, tipo, obs):
     seq = int(seq[0]) if isinstance(seq, list) else int(seq)
     mes = int(mes[0]) if isinstance(mes, list) else int(mes)
     ano = int(ano[0]) if isinstance(ano, list) else int(ano)
@@ -214,7 +214,7 @@ def atualizar_valor(seq, mes, ano, valor, tipo):
         UPDATE Racha_Financeiro
         SET ValorPago = %s, PAgo_Sn = %s, Data_Cad = now()
         WHERE Seq = %s AND Mes = %s AND Ano = %s;
-    """, (valor, tipo, seq, mes, ano))
+    """, (valor, tipo, seq, mes, ano, obs))
     
     conexao.commit()
     cursor.close()
