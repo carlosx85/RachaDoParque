@@ -35,5 +35,5 @@ def show():
         st.metric("📈 Receita", formatar(Receita), border=True)
 
     with col3:
-        st.metric("📉 Despesa", formatar(Despesa), border=True)
+        st.metric("📉 Despesa", formatar(despesa), border=True)
 
