@@ -38,11 +38,21 @@ def show():
         st.exception(e)
         return
 
+    # Meses e anos como listas de valores simples
+    meses = [str(i) for i in range(1, 13)]  # Mês de 1 a 12
+    anos = [str(ano) for ano in range(2020, 2031)]  # Exemplo de anos de 2020 a 2030
+
+    # Exemplo de valores atuais
+    mes_atual = "4"  # mês atual
+    ano_atual = "2025"  # ano atual
+
+    # Layout com colunas
     col1, col2, _ = st.columns([2, 4, 6])
     with col1:
         mes = st.selectbox("Mês", meses, index=meses.index(mes_atual) if mes_atual in meses else 0)
     with col2:
         ano = st.selectbox("Ano", anos, index=anos.index(ano_atual) if ano_atual in anos else 0)
+
 
     tipopagamento = [" ", "Pago", "Em Negociacao"]
     
