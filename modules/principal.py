@@ -12,7 +12,7 @@ def show():
     st.write(f"Total de despesas: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
     
  
-    saldo = receita - despesa
+    saldo = totalx - total
      
     st.subheader("Situação do Financeiro ✍🏻", divider=True)
   
