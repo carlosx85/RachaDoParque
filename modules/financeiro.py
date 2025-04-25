@@ -48,16 +48,24 @@ def show():
             <h5 style="margin: 0;">Racha do Parque (Financeiro)</h5> 
         
         </div>
-        <div style="font-size: 13px;">
-        <b>Periodo: {mes}/{ano}</b>  (f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")) {total:,.2f}
-        </div>
-        <hr style="margin-top: 5px; margin-bottom: 15px;">
         """
         st.markdown(header_html, unsafe_allow_html=True)       
         
         
-        st.write(f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
-        st.write(f"Despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.markdown(
+                f"<div style='font-size: 12px;'>Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + "</div>",
+                unsafe_allow_html=True
+            )
+
+        with col2:
+            st.markdown(
+                f"<div style='font-size: 12px;'>Despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + "</div>",
+                unsafe_allow_html=True
+            )
+
    
         
         
