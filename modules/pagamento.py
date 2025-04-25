@@ -11,24 +11,16 @@ from database import (
 
 st.subheader("Financeiro")
 
-@st.cache_data
 def get_logins():
     return buscar_logins()
 
-@st.cache_data
-def get_anos():
-    return buscar_anos()
-
-@st.cache_data
-def get_meses():
-    return buscar_meses()
 
 def show():
     mes_atual = datetime.now().month
     ano_atual = datetime.now().year
 
-    meses = get_meses()
-    anos = get_anos()
+    meses = buscar_meses()
+    anos = buscar_anos()
     dados_logins = get_logins()
 
     if not dados_logins:
