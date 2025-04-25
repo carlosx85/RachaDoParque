@@ -6,8 +6,13 @@ def show():
     despesa = resumodespesa()
     total = despesa[0] if despesa and despesa[0] is not None else 0
     st.write(f"Total de despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
-    Receita = 30.00 
-    Saldo = Receita - despesa
+    
+    receita = resumoreceita()
+    totalx = receita[0] if receita and receita[0] is not None else 0
+    st.write(f"Total de despesas: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+    
+ 
+    saldo = receita - despesa
      
     st.subheader("Situação do Financeiro ✍🏻", divider=True)
   
@@ -16,10 +21,10 @@ def show():
 
 
     # Define cor visual com truque de delta
-    if Saldo > 0:
+    if saldo > 0:
         delta = "+1"
         cor_saldo = "normal"   # Verde
-    elif Saldo < 0:
+    elif saldo < 0:
         delta = "-1"
         cor_saldo = "inverse"  # Vermelho
     else:
@@ -29,10 +34,10 @@ def show():
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.metric("💰 Saldo", formatar(Saldo), delta=delta, delta_color=cor_saldo, border=True)
+        st.metric("💰 Saldo", formatar(saldo), delta=delta, delta_color=cor_saldo, border=True)
 
     with col2:
-        st.metric("📈 Receita", formatar(Receita), border=True)
+        st.metric("📈 Receita", formatar(receita), border=True)
 
     with col3:
         st.metric("📉 Despesa", formatar(despesa), border=True)
