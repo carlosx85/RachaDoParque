@@ -80,13 +80,15 @@ def show():
                 color="green",
                 
             )
-
-        with col2:
+            
             st.badge(
                 f"R: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/trending_up:",
                 color="blue"
-            )
+            )            
+
+        with col2:
+
 
         with col3:
             st.badge(
