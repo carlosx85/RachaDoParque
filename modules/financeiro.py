@@ -47,25 +47,23 @@ def show():
         
         
         
-        
+       
 
-        import streamlit as st
+        col11, col21, col31 = st.columns(3)
 
-        col1, col2, col3 = st.columns(3)
-
-        with col1:
+        with col11:
             saldo = totalx - total        
             st.write(f"Saldo: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
         
 
-        with col2:
+        with col21:
             receita = resumoreceita()
             totalx = receita[0] if receita and receita[0] is not None else 0
             st.write(f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
  
     
 
-        with col3:
+        with col31:
             despesa = resumodespesa()
             total = despesa[0] if despesa and despesa[0] is not None else 0
             st.write(f"Despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
