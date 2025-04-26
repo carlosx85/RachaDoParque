@@ -62,7 +62,8 @@ def show():
         )
 
 
-        st.badge({saldo}, icon=":material/check:", color="green")
+        st.badge(f"Saldo: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."), icon=":material/check:", color="green")
+
            
 
 
