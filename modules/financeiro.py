@@ -64,11 +64,11 @@ def show():
             div[data-testid="column"] {
                 width: auto !important;
                 flex: none !important;
-                margin-right: 0px !important;
-                padding: 0px !important;
+                margin-right: 1px !important;
+                padding: 1px !important;
             }
             div[data-testid="stHorizontalBlock"] {
-                gap: 0px !important;
+                gap: 1px !important;
             }
             </style>
         """, unsafe_allow_html=True)
