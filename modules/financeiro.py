@@ -66,10 +66,10 @@ def show():
            
 
         with col31:
-
+            st.write("")
             
         with col11:
-
+            st.write("")
         
         
             
