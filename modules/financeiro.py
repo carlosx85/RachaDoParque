@@ -4,13 +4,7 @@ from database import buscar_clientes_por_periodo,resumodespesa,resumoreceita
 from datetime import datetime
  
 
-despesa = resumodespesa()
-total = despesa[0] if despesa and despesa[0] is not None else 0
-
-receita = resumoreceita()
-totalx = receita[0] if receita and receita[0] is not None else 0
-    
-    
+   
     
 # Cache para listas fixas
 @st.cache_data
@@ -52,15 +46,14 @@ def show():
         st.markdown(header_html, unsafe_allow_html=True)       
         
         
-        col1, col2 = st.columns(2)
-
-        with col1:
-            st.write("{totalx}")
+        despesa = resumodespesa()
+        total = despesa[0] if despesa and despesa[0] is not None else 0
+        st.write(f"Total de despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+        
+        receita = resumoreceita()
+        totalx = receita[0] if receita and receita[0] is not None else 0
+        st.write(f"Total de despesas: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
     
-
-        with col2: 
-             st.write("{total}")
-
    
         
         
