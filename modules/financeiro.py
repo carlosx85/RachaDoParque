@@ -54,14 +54,6 @@ def show():
         total = despesa[0] if despesa and despesa[0] is not None else 0
         saldo = totalx - total 
                 
-                
-        st.write(
-            f"Saldo: {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " > " +
-            f"Rec  : {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " > " +
-            f"Des  : {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
-        )
-
-
         st.badge(f"Saldo: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),    icon=":material/check:", color="green")
         st.badge(f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."), icon=":material/check:", color="blue")
         st.badge(f"Despesa: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),  icon=":material/check:", color="red")
