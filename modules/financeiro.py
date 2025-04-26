@@ -48,13 +48,16 @@ def show():
         
         despesa = resumodespesa()
         total = despesa[0] if despesa and despesa[0] is not None else 0
-        st.write(f"Total de despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+        st.write(f"Despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
         
         receita = resumoreceita()
         totalx = receita[0] if receita and receita[0] is not None else 0
-        st.write(f"Total de despesas: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+        st.write(f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
     
-   
+        saldo = totalx - total
+        
+        st.write(f"Receita: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+    
         
         
         try:
