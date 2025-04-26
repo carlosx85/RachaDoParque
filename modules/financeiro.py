@@ -7,11 +7,11 @@ from datetime import datetime
    
     
 # Cache para listas fixas
-@st.cache_data
+
 def carregar_meses():
     return list(range(1, 13))
 
-@st.cache_data
+
 def carregar_anos():
     return list(range(2025, 2031))
 
