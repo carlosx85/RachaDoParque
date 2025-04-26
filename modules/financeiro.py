@@ -71,9 +71,9 @@ def show():
         """, unsafe_allow_html=True)
 
         # Agora coloca os badges
-        col1, col2, col3 = st.columns(3)
+        col11 = st.columns(1)
 
-        with col1:
+        with col11:
             st.badge(
                 f"S: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/check:",
@@ -87,10 +87,6 @@ def show():
                 color="blue"
             )            
 
-        with col2:
-
-
-        with col3:
             st.badge(
                 f"D R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/trending_down:",
