@@ -63,7 +63,8 @@ def show():
 
 
         st.badge(f"Saldo: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."), icon=":material/check:", color="green")
-
+        st.badge(f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."), icon=":material/check:", color="blue")
+        st.badge(f"Despesa: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."), icon=":material/check:", color="red")
            
 
 
