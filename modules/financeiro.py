@@ -66,7 +66,7 @@ def show():
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                gap: 10px; /* espaço entre os badges */
+                gap: 1px; /* espaço entre os badges */
                 flex-wrap: wrap; /* permite quebrar se a tela for pequena */
                 margin-top: 1px;
             }
