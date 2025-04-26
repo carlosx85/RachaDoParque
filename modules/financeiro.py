@@ -39,7 +39,7 @@ def show():
         header_html = f"""
         <div style="display: flex; align-items: center; padding: 5px 0 5px 0;">
             <img src="https://boladecapotao.com/img/Racha_Logo_P.png" width="50" style="margin-right: 15px;">
-            <h5 style="margin: 0;">Racha do Parque (Financeiro)</h5> 
+            <h5 style="margin: 0;">Racha do Parque (Financeiro {mes}/{ano})</h5> 
         
         </div>
         """
@@ -126,7 +126,7 @@ def show():
                 
                 
                 st.markdown(f"""
-                    <div style="font-size: 13px;">
+                    <div style="font-size: 12px;">
                         <b>{i}. {login} ({status})</b> {situacao} {formatar_moeda(valor)} {obs_str}
                     </div>
                 """, unsafe_allow_html=True)
