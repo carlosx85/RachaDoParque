@@ -84,7 +84,7 @@ def show():
             )
 
         with col2:
-            st.badge(
+            st.badge(""
       
             )
 
