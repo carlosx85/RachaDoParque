@@ -79,7 +79,7 @@ def show():
 
         with col1:
             st.badge(
-                f"S: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                f"Saldo: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/check:",
                 color="green",
                 
@@ -87,14 +87,14 @@ def show():
 
         with col2:
             st.badge(
-                f"R: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/trending_up:",
                 color="blue"
             )
 
         with col3:
             st.badge(
-                f"D R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                f"Despesa R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/trending_down:",
                 color="red"
             )
