@@ -65,7 +65,7 @@ def show():
             div[data-testid="column"] {
                 width: auto !important;
                 flex: none !important;
-                margin-right: 10px; /* espaço entre os badges */
+                margin-right: 1px; /* espaço entre os badges */
             }
             </style>
         """, unsafe_allow_html=True)
