@@ -66,7 +66,7 @@ def show():
             
         with col11:
             saldo = totalx - total        
-            st.write(f"Saldo: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+            st.write(f"Saldox: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
         
         
             
