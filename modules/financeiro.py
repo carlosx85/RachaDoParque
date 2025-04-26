@@ -58,44 +58,44 @@ def show():
         #st.badge(f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."), icon=":material/check:", color="blue")
         #st.badge(f"Despesa: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),  icon=":material/check:", color="red")
            
-  
-    # CSS para ajustar padding/margin dos elementos
-    st.markdown("""
-        <style>
-        .badges-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px; /* espaço entre os badges */
-            flex-wrap: wrap; /* permite quebrar se a tela for pequena */
-            margin-top: 10px;
-        }
-        </style>
-    """, unsafe_allow_html=True)
+    
+        # CSS para ajustar padding/margin dos elementos
+        st.markdown("""
+            <style>
+            .badges-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px; /* espaço entre os badges */
+                flex-wrap: wrap; /* permite quebrar se a tela for pequena */
+                margin-top: 10px;
+            }
+            </style>
+        """, unsafe_allow_html=True)
 
-    # Container para centralizar os badges
-    with st.container():
-        st.markdown('<div class="badges-container">', unsafe_allow_html=True)
+        # Container para centralizar os badges
+        with st.container():
+            st.markdown('<div class="badges-container">', unsafe_allow_html=True)
 
-        st.badge(
-            f"S: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
-            icon=":material/check:",
-            color="green"
-        )
+            st.badge(
+                f"S: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                icon=":material/check:",
+                color="green"
+            )
 
-        st.badge(
-            f"R: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
-            icon=":material/trending_up:",
-            color="blue"
-        )
+            st.badge(
+                f"R: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                icon=":material/trending_up:",
+                color="blue"
+            )
 
-        st.badge(
-            f"D: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
-            icon=":material/trending_down:",
-            color="red"
-        )
+            st.badge(
+                f"D: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                icon=":material/trending_down:",
+                color="red"
+            )
 
-        st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
                 
                 
