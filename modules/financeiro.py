@@ -59,16 +59,20 @@ def show():
         #st.badge(f"Despesa: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),  icon=":material/check:", color="red")
            
   
-        # CSS para reduzir espaço entre colunas
         st.markdown("""
             <style>
             div[data-testid="column"] {
                 width: auto !important;
                 flex: none !important;
-                margin-right: 0px; /* espaço entre os badges */
+                margin-right: 0px !important;
+                padding: 0px !important;
+            }
+            div[data-testid="stHorizontalBlock"] {
+                gap: 0px !important;
             }
             </style>
         """, unsafe_allow_html=True)
+
 
         # Agora coloca os badges
         col1, col2, col3 = st.columns(3)
