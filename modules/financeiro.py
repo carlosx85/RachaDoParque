@@ -48,9 +48,9 @@ def show():
         
        
 
-        receita = resumoreceitames()
+        receita = resumoreceitames(mes,ano)
         totalx = receita[0] if receita and receita[0] is not None else 0
-        despesa = resumodespesames()
+        despesa = resumodespesames(mes,ano)
         total = despesa[0] if despesa and despesa[0] is not None else 0
         saldo = totalx - total 
                 
