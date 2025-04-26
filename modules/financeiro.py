@@ -57,16 +57,19 @@ def show():
             totalx = receita[0] if receita and receita[0] is not None else 0
             st.write(f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
  
-    
-
-        with col31:
             despesa = resumodespesa()
             total = despesa[0] if despesa and despesa[0] is not None else 0
             st.write(f"Despesas: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
             
-        with col11:
             saldo = totalx - total        
             st.write(f"Saldox: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+           
+
+        with col31:
+
+            
+        with col11:
+
         
         
             
