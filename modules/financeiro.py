@@ -43,33 +43,22 @@ def show():
         
         </div>
         """
-        st.markdown(header_html, unsafe_allow_html=True)       
+        st.markdown(header_html, unsafe_allow_html=True)    
         
-        
-        
-       
-
-        col11, col21, col31 = st.columns(3)
-
-
-        with col21:
-            receita = resumoreceita()
-            totalx = receita[0] if receita and receita[0] is not None else 0
-            st.write(f"R: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
- 
-            despesa = resumodespesa()
-            total = despesa[0] if despesa and despesa[0] is not None else 0
-            st.write(f"D: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+    receita = resumoreceita()
+    totalx = receita[0] if receita and receita[0] is not None else 0
+    despesa = resumodespesa()
+    total = despesa[0] if despesa and despesa[0] is not None else 0
+    saldo = totalx - total 
             
-            saldo = totalx - total        
-            st.write(f"S: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
+            
+    st.write(f"R: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))  
+    st.write(f"D: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))           
+    saldo = totalx - total        
+    st.write(f"S: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
            
 
-        with col31:
-            st.write("")
-            
-        with col11:
-            st.write("")
+
         
         
             
