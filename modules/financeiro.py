@@ -67,6 +67,28 @@ def show():
         st.badge(f"Despesa: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."), icon=":material/check:", color="red")
            
 
+col0, col1, col2, col3, col4 = st.columns([1, 2, 2, 2, 1])  # 1 de espaço - 2 cada badge - 1 de espaço
+
+with col1:
+    st.badge(
+        f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."), 
+        icon=":material/trending_up:", 
+        color="blue"
+    )
+
+with col2:
+    st.badge(
+        f"Despesa: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."), 
+        icon=":material/trending_down:", 
+        color="red"
+    )
+
+with col3:
+    st.badge(
+        f"Saldo: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."), 
+        icon=":material/account_balance:", 
+        color="green"
+    )
 
         
         
