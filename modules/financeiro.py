@@ -52,12 +52,13 @@ def show():
     saldo = totalx - total 
             
             
-    st.write(f"R: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))  
-    st.write(f"D: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))           
-    saldo = totalx - total        
-    st.write(f"S: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."))
-           
+    st.write(
+        f"R: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " | " +
+        f"D: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " | " +
+        f"S: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+    )
 
+            
 
         
         
