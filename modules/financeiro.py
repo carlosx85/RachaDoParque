@@ -55,16 +55,12 @@ def show():
         saldo = totalx - total 
                 
                 
-        st.markdown(
-            f"""
-            <div style="text-align: center;">
-                R: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") &nbsp; | &nbsp;
-                D: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") &nbsp; | &nbsp;
-                S: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
-            </div>
-            """,
-            unsafe_allow_html=True
-                     )   
+        st.write(
+            f"Saldo: {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " > " +
+            f"Rec  : {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " > " +
+            f"Des  : {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+        )
+
 
  
            
