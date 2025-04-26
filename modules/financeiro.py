@@ -43,22 +43,28 @@ def show():
         
         </div>
         """
-        st.markdown(header_html, unsafe_allow_html=True)    
+        st.markdown(header_html, unsafe_allow_html=True)       
+              
         
-    receita = resumoreceita()
-    totalx = receita[0] if receita and receita[0] is not None else 0
-    despesa = resumodespesa()
-    total = despesa[0] if despesa and despesa[0] is not None else 0
-    saldo = totalx - total 
-            
-            
-    st.write(
-        f"R: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " | " +
-        f"D: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " | " +
-        f"S: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
-    )
+       
 
-            
+        receita = resumoreceita()
+        totalx = receita[0] if receita and receita[0] is not None else 0
+        despesa = resumodespesa()
+        total = despesa[0] if despesa and despesa[0] is not None else 0
+        saldo = totalx - total 
+                
+                
+        st.write(
+            f"R: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " | " +
+            f"D: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " | " +
+            f"S: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+        )
+
+
+ 
+           
+
 
         
         
