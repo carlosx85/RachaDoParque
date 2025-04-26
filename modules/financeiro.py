@@ -55,17 +55,8 @@ def show():
         saldo = totalx - total 
                 
                 
-        st.write(
-            f"Saldo: {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " > " +
-            f"Rec  : {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " > " +
-            f"Des  : {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
-        )
-
-
-        st.badge(f"Saldo: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."), icon=":material/check:", color="green")
-        st.badge(f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."), icon=":material/check:", color="blue")
-        st.badge(f"Despesa: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."), icon=":material/check:", color="red")
-           
+ 
+    
 
     col0, col1, col2, col3, col4 = st.columns([1, 2, 2, 2, 1])  # 1 de espaço - 2 cada badge - 1 de espaço
 
