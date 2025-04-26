@@ -58,44 +58,46 @@ def show():
         #st.badge(f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."), icon=":material/check:", color="blue")
         #st.badge(f"Despesa: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),  icon=":material/check:", color="red")
            
-    
-        # CSS para ajustar padding/margin dos elementos
+  
         st.markdown("""
             <style>
-            .badges-container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 0px; /* espaço entre os badges */
-                flex-wrap: wrap; /* permite quebrar se a tela for pequena */
-                margin-top: 0px;
+            div[data-testid="column"] {
+                width: auto !important;
+                flex: none !important;
+                margin-right: 1px !important;
+                padding: 1px !important;
+            }
+            div[data-testid="stHorizontalBlock"] {
+                gap: 1px !important;
             }
             </style>
         """, unsafe_allow_html=True)
 
-        # Container para centralizar os badges
-        with st.container():
-            st.markdown('<div class="badges-container">', unsafe_allow_html=True)
 
+        # Agora coloca os badges
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
             st.badge(
-                f"S: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                f"Saldo: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/check:",
-                color="green"
+                color="green",
+                
             )
 
+        with col2:
             st.badge(
-                f"R: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/trending_up:",
                 color="blue"
             )
 
+        with col3:
             st.badge(
-                f"D: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                f"Despesa R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/trending_down:",
                 color="red"
             )
-
-            st.markdown('</div>', unsafe_allow_html=True)
 
                 
                 
