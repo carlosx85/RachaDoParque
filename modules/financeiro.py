@@ -90,7 +90,7 @@ def show():
             st.badge(
                 f"D R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/trending_down:",
-                color="red"
+                color="red",
             )
 
                 
