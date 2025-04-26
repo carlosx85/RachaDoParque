@@ -39,7 +39,7 @@ def show():
         header_html = f"""
         <div style="display: flex; align-items: center; padding: 5px 0 5px 0;">
             <img src="https://boladecapotao.com/img/Racha_Logo_P.png" width="50" style="margin-right: 13px;">
-            <h5 style="margin: 0;">Racha do Parque ($$ {mes}/{ano})</h5> 
+            <h5 style="margin: 0;">Racha do Parque (Financeiro {mes}/{ano})</h5> 
         
         </div>
         """
@@ -71,26 +71,28 @@ def show():
         """, unsafe_allow_html=True)
 
         # Agora coloca os badges
-        col1= st.columns(1)
+        col1, col2, col3 = st.columns(3)
 
         with col1:
             st.badge(
                 f"S: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/check:",
-                color="green"
+                color="green",
                 
             )
-            
+
+        with col2:
             st.badge(
                 f"R: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/trending_up:",
                 color="blue"
-            )            
+            )
 
+        with col3:
             st.badge(
                 f"D R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/trending_down:",
-                color="red",
+                color="red"
             )
 
                 
