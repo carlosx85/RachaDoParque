@@ -1,17 +1,17 @@
 import streamlit as st
 import pandas as pd
-from database import buscar_clientes_por_periodo,resumoreceitames,resumodespesames
+from database import buscar_clientes_por_periodo,resumodespesa,resumoreceita
 from datetime import datetime
  
 
    
     
 # Cache para listas fixas
-
+@st.cache_data
 def carregar_meses():
     return list(range(1, 13))
 
-
+@st.cache_data
 def carregar_anos():
     return list(range(2025, 2031))
 
@@ -48,9 +48,9 @@ def show():
         
        
 
-        receita = resumoreceitames(mes,ano)
+        receita = resumoreceita()
         totalx = receita[0] if receita and receita[0] is not None else 0
-        despesa = resumodespesames(mes,ano)
+        despesa = resumodespesa()
         total = despesa[0] if despesa and despesa[0] is not None else 0
         saldo = totalx - total 
                 
