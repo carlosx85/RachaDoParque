@@ -62,7 +62,7 @@ def show():
         )
 
 
-        st.badge("{saldo}", icon=":material/check:", color="green")
+        st.badge({saldo}, icon=":material/check:", color="green")
            
 
 
