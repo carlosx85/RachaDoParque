@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from database import buscar_clientes_por_periodo,resumodespesa,resumoreceita
+from database import buscar_clientes_por_periodo,resumoreceitames,resumodespesames
 from datetime import datetime
  
 
@@ -48,9 +48,9 @@ def show():
         
        
 
-        receita = resumoreceita()
+        receita = resumoreceitames()
         totalx = receita[0] if receita and receita[0] is not None else 0
-        despesa = resumodespesa()
+        despesa = resumodespesames()
         total = despesa[0] if despesa and despesa[0] is not None else 0
         saldo = totalx - total 
                 
