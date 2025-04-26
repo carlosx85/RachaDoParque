@@ -78,13 +78,14 @@ def show():
                 f"Saldo: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/check:",
                 color="green"
+                f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                icon=":material/trending_up:",
+                color="blue"
             )
 
         with col2:
             st.badge(
-                f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
-                icon=":material/trending_up:",
-                color="blue"
+      
             )
 
         with col3:
