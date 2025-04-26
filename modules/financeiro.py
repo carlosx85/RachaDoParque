@@ -56,8 +56,8 @@ def show():
                 
                 
         st.write(
-            f"Saldo: {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " | " +
-            f"Rec  : {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " | " +
+            f"Saldo: {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " > " +
+            f"Rec  : {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") + " > " +
             f"Des  : {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
         )
 
