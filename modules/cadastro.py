@@ -15,20 +15,11 @@ def show():
         nome     = st.text_input("Nome", max_chars=100)
         login  = st.text_input("Apelido", max_chars=100)
         
-        # Primeira linha: DDD e Telefone
         col1, col2 = st.columns([1, 4])
         with col1:
             ddd = st.text_input("DDD", max_chars=2)
         with col2:
             telefone = st.text_input("Telefone", max_chars=12)
-        
-        # Segunda linha: Dia Nasc e Mês Nasc
-        col3, col4 = st.columns([1, 4])
-        with col3:
-            dianasc = st.text_input("Dia Nascimento", max_chars=2)
-        with col4:
-            
-            
             
         # Mapeia o texto visível para o valor interno
         opcoes = {
@@ -38,7 +29,6 @@ def show():
 
         # Selectbox exibindo só os textos
         opcao_escolhida = st.selectbox("Selecione o Tipo de Status do Jogador:", list(opcoes.keys()))
-        
         
 
         # Pega o valor real que você quer usar (N ou D)
@@ -50,7 +40,7 @@ def show():
         if nome.strip() == ""or  login.strip() == "":
             st.error("O campo 'Nome/Apelido' são obrigatório.")
         else:
-            cliente_id = inserir_cliente(nome,login,ddd,telefone,StatusdePagamento,dianasc,mesnasc)
+            cliente_id = inserir_cliente(nome,login,ddd,telefone,StatusdePagamento)
             if cliente_id:
                 st.success(f"Jogador  '{nome}' Cadastrado com sucesso!)")
 
