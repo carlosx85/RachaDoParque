@@ -54,7 +54,7 @@ def show():
         ano = st.selectbox("Ano", anos, index=anos.index(ano_atual) if ano_atual in anos else 0)
 
 
-    tipopagamento = [" ", "Pago", "Em Negociacao"]
+    tipopagamento = ["Pago", "Em Negociacao"]
     
     tipo = st.selectbox("Selecione o Status do Pagamento:", tipopagamento)
 
