@@ -19,7 +19,7 @@ def show():
         with col1:
             ddd = st.text_input("DDD", max_chars=2)
         with col2:
-            telefone = st.text_input("Telefone", max_chars=3)
+            telefone = st.text_input("Telefone", max_chars=9)
             
             
            # Segunda linha: Dia Nasc e Mês Nasc
