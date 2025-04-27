@@ -15,7 +15,7 @@ def show():
         nome     = st.text_input("Nome", max_chars=100)
         login  = st.text_input("Apelido", max_chars=100)
         
-        col1, col2,col3, col4 = st.columns([1, 4])
+        col1, col2,col3, col4 = st.columns([1, 4, 1, 4])
         with col1:
             ddd = st.text_input("DDD", max_chars=2)
         with col2:
