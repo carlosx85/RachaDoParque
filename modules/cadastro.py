@@ -17,9 +17,16 @@ def show():
         
         col1, col2 = st.columns([1, 4])
         with col1:
-            ddd = st.number_input("Telefone", min_value=0, max_value=99, step=1, format="%d")
+            ddd = st.number_input("DDD", min_value=0, max_value=99, step=1, format="%d")
+            # Verifica o número de dígitos
+            if len(str(int(ddd))) > 2:
+                st.error("Telefone não pode ter mais de 9 dígitos!")
+                
         with col2:
             telefone = st.number_input("Telefone", min_value=0, max_value=999999999, step=1, format="%d")
+            # Verifica o número de dígitos
+            if len(str(int(telefone))) > 9:
+                st.error("Telefone não pode ter mais de 9 dígitos!")
             
             
            # Segunda linha: Dia Nasc e Mês Nasc
