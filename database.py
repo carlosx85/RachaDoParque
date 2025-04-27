@@ -26,12 +26,12 @@ def validar_login(usuario, senha):
 
 
     
-def inserir_cliente(nome,Login,ddd,telefone,StatusdePagamento):
+def inserir_cliente(nome,Login,ddd,telefone,StatusdePagamento,Dia_Nasc,Mes_Nasc):
     try:
-        conexao = conectar()
+        conexao = conectar(),%s
         cursor = conexao.cursor()
-        query = "INSERT INTO Racha_Usuario (Nome,Login,DDD,Telefone,StatusdePagamento) VALUES (%s,%s,%s,%s,%s)"
-        cursor.execute(query, (nome,Login,ddd,telefone,StatusdePagamento))
+        query = "INSERT INTO Racha_Usuario (Nome,Login,DDD,Telefone,StatusdePagamento,Dia_Nasc,Mes_Nasc) VALUES (%s,%s,%s,%s,%s,%s,%s)"
+        cursor.execute(query, (nome,Login,ddd,telefone,StatusdePagamento,Dia_Nasc,Mes_Nasc,))
         conexao.commit()
         cliente_id = cursor.lastrowid  # 👈 captura o ID gerado
         cursor.close()
@@ -307,6 +307,29 @@ def resumoreceita():
     cursor = conexao.cursor()
     cursor.execute("""
         SELECT SUM(ValorPago) AS Receita FROM Racha_Financeiro;
+    """, ())
+    dados = cursor.fetchone()
+    cursor.close()
+    conexao.close()
+    return dados
+
+
+def resumodespesames(mes,ano):
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute("""
+        SELECT SUM(Valor) AS Despesa  FROM Racha_Despesa WHERE Seq = %s AND Mes = %s AND Ano = %s;
+    """, ())
+    dados = cursor.fetchone()
+    cursor.close()
+    conexao.close()
+    return dados
+
+def resumoreceitames(mes,ano):
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute("""
+        SELECT SUM(ValorPago) AS Receita FROM Racha_Financeiro WHERE Seq = %s AND Mes = %s AND Ano = %s;
     """, ())
     dados = cursor.fetchone()
     cursor.close()
