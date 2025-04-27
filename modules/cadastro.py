@@ -12,7 +12,7 @@ def show():
 
     # --- FORMULÁRIO DE CADASTRO ---
     with st.form("form_cadastro"):
-        nome     = st.text_input("Nome", max_chars=100)
+        nome     = st.text_input("Nomex", max_chars=100)
         login  = st.text_input("Apelido", max_chars=100)
         
         col11, col21 = st.columns([1, 4])
