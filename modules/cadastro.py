@@ -19,7 +19,7 @@ def show():
         with col1:
             ddd = st.text_input("DDD", max_chars=2)
         with col2:
-            telefone = st.text_input("Telefone", max_chars=12)
+            telefone = st.text_input("Telefone", max_chars=3)
             
             
            # Segunda linha: Dia Nasc e Mês Nasc
@@ -31,7 +31,7 @@ def show():
                 
         # Mapeia o texto visível para o valor interno
         opcoes = {
-            "Normal": "N",
+            "Padrão": "P",
             "Dispensado": "D"
         }
 
