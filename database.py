@@ -318,19 +318,25 @@ def resumodespesames(mes,ano):
     conexao = conectar()
     cursor = conexao.cursor()
     cursor.execute("""
-        SELECT SUM(Valor) AS Despesa , Mes,Ano   FROM Racha_Despesa WHERE  Mes = %s AND Ano = %s;
-    """, ())
+        SELECT SUM(Valor) AS Despesa , Mes,Ano   
+        FROM Racha_Despesa 
+        WHERE  Mes = %s AND Ano = %s 
+        GROUP BY Mes, Ano
+    """, (mes, ano))
     dados = cursor.fetchone()
     cursor.close()
     conexao.close()
     return dados
 
-def resumoreceitames(mes,ano):
+def resumoreceitames(mes, ano):
     conexao = conectar()
     cursor = conexao.cursor()
     cursor.execute("""
-        SELECT SUM(ValorPago) AS Receita, Mes,Ano  FROM Racha_Financeiro WHERE  Mes = %s AND Ano = %s;
-    """, ())
+        SELECT SUM(ValorPago) AS Receita, Mes, Ano 
+        FROM Racha_Financeiro 
+        WHERE Mes = %s AND Ano = %s
+        GROUP BY Mes, Ano
+    """, (mes, ano))  # <-- aqui passa os parâmetros corretamente
     dados = cursor.fetchone()
     cursor.close()
     conexao.close()
