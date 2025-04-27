@@ -1,5 +1,5 @@
 import streamlit as st
-from database import buscar_anos, buscar_meses, atualizar_valor_despesa, listarpagamento
+from database import  atualizar_valor_despesa, listarpagamento
 from datetime import datetime
 import pandas as pd
 
@@ -9,7 +9,6 @@ st.subheader("Financeiro")
  
 def carregar_meses():
     return list(range(1, 13))
-
  
 def carregar_anos():
     return list(range(2025, 2031))
