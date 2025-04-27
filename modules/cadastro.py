@@ -48,7 +48,7 @@ def show():
         if nome.strip() == ""or  login.strip() == "":
             st.error("O campo 'Nome/Apelido' são obrigatório.")
         else:
-            cliente_id = inserir_cliente(nome,login,ddd,telefone,StatusdePagamento)
+            cliente_id = inserir_cliente(nome,login,ddd,telefone,StatusdePagamento,dianasc,mesnasc)
             if cliente_id:
                 st.success(f"Jogador  '{nome}' Cadastrado com sucesso!)")
 
