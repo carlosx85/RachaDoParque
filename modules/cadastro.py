@@ -21,6 +21,14 @@ def show():
         with col2:
             telefone = st.text_input("Telefone", max_chars=12)
             
+            
+           # Segunda linha: Dia Nasc e Mês Nasc
+        col3, col4 = st.columns([1, 4])
+        with col3:
+            dianasc = st.text_input("Dia Nascimento", max_chars=2)
+        with col4:
+            mesnasc = st.text_input("Mês Nascimento", max_chars=4)
+                
         # Mapeia o texto visível para o valor interno
         opcoes = {
             "Normal": "N",
