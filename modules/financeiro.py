@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from database import buscar_clientes_por_periodo,resumodespesa,resumoreceita
+from database import buscar_clientes_por_periodo,resumodespesa,resumoreceita,resumodespesames,resumoreceitames
 from datetime import datetime
  
 
@@ -48,16 +48,30 @@ def show():
         
        
 
+        receitames = resumodespesames()
+        totalrecmes = receitames[0] if receitames and receitames[0] is not None else 0
+        despesames = resumoreceitames()
+        totaldespmes = despesames[0] if despesames and despesames[0] is not None else 0          
+        saldomes = totalrecmes - totaldespmes
+        
+        
+        saldomes
+        
+        
+        
+        
+        
         receita = resumoreceita()
         totalx = receita[0] if receita and receita[0] is not None else 0
         despesa = resumodespesa()
         total = despesa[0] if despesa and despesa[0] is not None else 0
         saldo = totalx - total 
+        
+        
+        
+        
                 
-        #st.badge(f"Saldo: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),    icon=":material/check:", color="green")
-        #st.badge(f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."), icon=":material/check:", color="blue")
-        #st.badge(f"Despesa: R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),  icon=":material/check:", color="red")
-           
+
   
         st.markdown("""
             <style>
