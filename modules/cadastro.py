@@ -15,18 +15,18 @@ def show():
         nome     = st.text_input("Nome", max_chars=100)
         login  = st.text_input("Apelido", max_chars=100)
         
-    # Primeira linha: DDD e Telefone
-    col1, col2 = st.columns([1, 4])
-    with col1:
-        ddd = st.text_input("DDD", max_chars=2)
-    with col2:
-        telefone = st.text_input("Telefone", max_chars=12)
-    
-    # Segunda linha: Dia Nasc e Mês Nasc
-    col3, col4 = st.columns([1, 4])
-    with col3:
-        dianasc = st.text_input("Dia Nascimento", max_chars=2)
-    with col4:
+        # Primeira linha: DDD e Telefone
+        col1, col2 = st.columns([1, 4])
+        with col1:
+            ddd = st.text_input("DDD", max_chars=2)
+        with col2:
+            telefone = st.text_input("Telefone", max_chars=12)
+        
+        # Segunda linha: Dia Nasc e Mês Nasc
+        col3, col4 = st.columns([1, 4])
+        with col3:
+            dianasc = st.text_input("Dia Nascimento", max_chars=2)
+        with col4:
             
             
             
