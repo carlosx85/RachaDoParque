@@ -12,25 +12,14 @@ def show():
 
     # --- FORMULÁRIO DE CADASTRO ---
     with st.form("form_cadastro"):
-        nome     = st.text_input("Nomex", max_chars=100)
+        nome     = st.text_input("Nome", max_chars=100)
         login  = st.text_input("Apelido", max_chars=100)
-        
-        col11, col21 = st.columns([1, 4])
-        with col11:
-            Dia_Nasc = st.number_input("Dia Nascimento", max_chars=2)
-        with col21:
-            Mes_Nasc = st.number_input("Mes Nascimeto", max_chars=2)
-            
-        
         
         col1, col2 = st.columns([1, 4])
         with col1:
             ddd = st.text_input("DDD", max_chars=2)
         with col2:
             telefone = st.text_input("Telefone", max_chars=12)
-            
-            
-            
             
         # Mapeia o texto visível para o valor interno
         opcoes = {
@@ -52,7 +41,7 @@ def show():
         if nome.strip() == ""or  login.strip() == "":
             st.error("O campo 'Nome/Apelido' são obrigatório.")
         else:
-            cliente_id = inserir_cliente(nome,login,ddd,telefone,StatusdePagamento,Dia_Nasc,Mes_Nasc)
+            cliente_id = inserir_cliente(nome,login,ddd,telefone,StatusdePagamento)
             if cliente_id:
                 st.success(f"Jogador  '{nome}' Cadastrado com sucesso!)")
 
