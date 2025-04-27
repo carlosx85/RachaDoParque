@@ -130,7 +130,7 @@ def buscar_clientes_por_periodo(ano, mes):
 def buscar_logins():
     conexao = conectar()
     cursor = conexao.cursor()
-    cursor.execute("SELECT DISTINCT Seq, Login, Nome FROM Racha_Financeiro_Geral ORDER BY Seq, Login, Nome")
+    cursor.execute("SELECT DISTINCT Seq, Login, Nome FROM Racha_Usuario ORDER BY Seq, Login, Nome")
     logins = cursor.fetchall()  # Agora pega Seq, Login e Nome juntos
     cursor.close()
     conexao.close()
@@ -201,26 +201,25 @@ def atualizar_pagamentk(cliente_id, mes, ano):
     
     
     
-def atualizar_valor(seq, mes, ano, valor,tipo):
-    # Garantir que os valores não sejam listas
+def atualizar_valor(seq, mes, ano, valor, tipo, obs):
     seq = int(seq[0]) if isinstance(seq, list) else int(seq)
     mes = int(mes[0]) if isinstance(mes, list) else int(mes)
     ano = int(ano[0]) if isinstance(ano, list) else int(ano)
     valor = int(valor[0]) if isinstance(valor, list) else int(valor)
-    tipo =tipo
 
     conexao = conectar()
     cursor = conexao.cursor()
 
     cursor.execute("""
         UPDATE Racha_Financeiro
-        SET ValorPago = %s, PAgo_Sn =%s, Data_Cad = now()
+        SET ValorPago = %s, PAgo_Sn = %s, Obs = %s, Data_Cad = now()
         WHERE Seq = %s AND Mes = %s AND Ano = %s;
-    """, (valor, tipo, seq, mes, ano))
-
+    """, (valor, tipo, obs, seq, mes, ano))
+    
     conexao.commit()
     cursor.close()
     conexao.close()
+
 
 
 def buscar_usuario_por_seq(seq):
@@ -302,4 +301,41 @@ def resumodespesa():
     cursor.close()
     conexao.close()
     return dados
+
+def resumoreceita():
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute("""
+        SELECT SUM(ValorPago) AS Receita FROM Racha_Financeiro;
+    """, ())
+    dados = cursor.fetchone()
+    cursor.close()
+    conexao.close()
+    return dados
+
+
+def resumodespesames(mes,ano):
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute("""
+        SELECT SUM(Valor) AS Despesa  FROM Racha_Despesa WHERE Seq = %s AND Mes = %s AND Ano = %s;
+    """, ())
+    dados = cursor.fetchone()
+    cursor.close()
+    conexao.close()
+    return dados
+
+def resumoreceitames(mes,ano):
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute("""
+        SELECT SUM(ValorPago) AS Receita FROM Racha_Financeiro WHERE Seq = %s AND Mes = %s AND Ano = %s;
+    """, ())
+    dados = cursor.fetchone()
+    cursor.close()
+    conexao.close()
+    return dados
+
+
+
 
