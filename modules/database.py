@@ -318,7 +318,10 @@ def resumodespesames(mes,ano):
     conexao = conectar()
     cursor = conexao.cursor()
     cursor.execute("""
-        SELECT SUM(Valor) AS Despesa , Mes,Ano   FROM Racha_Despesa WHERE  Mes = %s AND Ano = %s;
+        SELECT SUM(Valor) AS Despesa , Mes,Ano   
+        FROM Racha_Despesa 
+        WHERE  Mes = %s AND Ano = %s 
+        GROUP BY Mes, Ano
     """, (mes, ano))
     dados = cursor.fetchone()
     cursor.close()
