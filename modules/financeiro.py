@@ -48,15 +48,15 @@ def show():
         
        
 
-        receitames = resumoreceitames()
+        receitames = resumoreceitames(mes,ano)
         totalrecmes = receitames[0] if receitames and receitames[0] is not None else 0
-        despesames = resumodespesames()
+        despesames = resumodespesames(mes,ano)
         totaldespmes = despesames[0] if despesames and despesames[0] is not None else 0          
-        saldomes = totalrecmes - totaldespmes
+         = totalrecmes - totaldespmes
         
         
          
-        
+        saldomes
         
         
         
@@ -93,7 +93,7 @@ def show():
 
         with col1:
             st.badge(
-                f"Saldo: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                f"Saldo: R$ {saldomes:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/check:",
                 color="green",
                 
