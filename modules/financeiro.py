@@ -48,9 +48,9 @@ def show():
         
        
 
-        receitames = resumodespesames()
+        receitames = resumoreceitames()
         totalrecmes = receitames[0] if receitames and receitames[0] is not None else 0
-        despesames = resumoreceitames()
+        despesames = resumodespesames()
         totaldespmes = despesames[0] if despesames and despesames[0] is not None else 0          
         saldomes = totalrecmes - totaldespmes
         
