@@ -7,11 +7,11 @@ from datetime import datetime
    
     
 # Cache para listas fixas
-@st.cache_data
+
 def carregar_meses():
     return list(range(1, 13))
 
-@st.cache_data
+
 def carregar_anos():
     return list(range(2025, 2031))
 
@@ -101,14 +101,14 @@ def show():
 
         with col2:
             st.badge(
-                f"Receita: R$ {totalx:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                f"Receita: R$ {totalrecmes:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/trending_up:",
                 color="blue"
             )
 
         with col3:
             st.badge(
-                f"Despesa R$ {total:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                f"Despesa R$ {totaldespmes:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/trending_down:",
                 color="red"
             )
