@@ -55,7 +55,7 @@ def show():
         saldomes = totalrecmes - totaldespmes
         
         
-        saldomes
+         
         
         
         
@@ -93,7 +93,7 @@ def show():
 
         with col1:
             st.badge(
-                f"Saldo: R$ {saldo:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                f"Saldo: R$ {saldomes:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/check:",
                 color="green",
                 
