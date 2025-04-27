@@ -60,7 +60,7 @@ def show():
 
     obs = st.text_input("Obs", max_chars=100)
     
-    valor = st.number_input("Digite o Valor (exato):", min_value=0.0)
+    valor = st.number_input("Digite o Valor (exato):", min_value=0, step=1, format="%d")
     
    
 

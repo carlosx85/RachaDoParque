@@ -37,7 +37,7 @@ def show():
         ano = st.selectbox("Ano", anos, index=anos.index(ano_atual) if ano_atual in anos else 0)
 
     # Inputs de valor e descrição
-    valor = st.number_input("Digite o Valor da Despesa:", min_value=0.0)
+    valor = st.number_input("Digite o Valor da Despesa:",min_value=0, step=1, format="%d")
     descricao = st.text_input("Descrição", max_chars=100)
 
     if st.button("Efetuar o pagamento"):
