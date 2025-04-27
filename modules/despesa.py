@@ -6,13 +6,13 @@ import pandas as pd
 st.subheader("Financeiro")
 
 # Caches para evitar chamadas repetidas ao banco
-@st.cache_data
+ 
 def carregar_meses():
-    return buscar_meses()
+    return list(range(1, 13))
 
-@st.cache_data
+ 
 def carregar_anos():
-    return buscar_anos()
+    return list(range(2025, 2031))
 
 # Formatação manual de moeda brasileira
 def formatar_moeda(valor):
