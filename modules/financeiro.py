@@ -52,11 +52,11 @@ def show():
         totalrecmes = receitames[0] if receitames and receitames[0] is not None else 0
         despesames = resumodespesames(mes,ano)
         totaldespmes = despesames[0] if despesames and despesames[0] is not None else 0          
-         = totalrecmes - totaldespmes
+        saldomes= totalrecmes - totaldespmes
         
         
          
-        saldomes
+         
         
         
         
