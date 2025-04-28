@@ -106,9 +106,7 @@ def show():
                     # Junta TipoDespesa + ValorFormatado em uma única coluna
                     df_usuario["DespesaValor"] = df_usuario["tipodespesa"] + " (" + df_usuario["ValorFormatado"] + ")"
 
-                    # Atualiza a tabela na tela
-                    st.write("### Lista de Despesas Atualizada:")
-                    st.dataframe(df_usuario)  # Mostra a lista atualizada
+
 
           
             
