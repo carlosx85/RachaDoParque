@@ -343,5 +343,14 @@ def resumoreceitames(mes, ano):
     return dados
 
 
+def excluir_despesa(mes, ano, tipodespesa, descricao):
+    conexao = conectar()
+    cursor = conexao.cursor()
+    query = "DELETE FROM Racha_Despesa WHERE Mes = %s AND Ano = %s AND tipodespesa = %s AND Descricao = %s"
+    cursor.execute(query, (mes, ano, tipodespesa, descricao))
+    conexao.commit()
+    conexao.close()
+
+
 
 
