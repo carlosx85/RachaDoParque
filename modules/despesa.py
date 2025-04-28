@@ -83,10 +83,32 @@ def show():
                     from database import excluir_despesa
                     excluir_despesa(row["Seq"])  # Exclui pelo SEQ
                     st.success(f"Despesa excluída!")
-                
-                # Atualiza o estado ou dados para refletir a exclusão sem forçar rerun
-                st.session_state['despesa_excluida'] = True  # Só exemplo
-                # Remover rerun e deixar o estado gerenciar a navegação ou atualização
-    else:
-        st.warning("Nenhuma despesa cadastrada ainda.")
-                    
+
+                    # Atualiza o estado para refletir a exclusão
+                    st.session_state['despesa_excluida'] = True  # Marca a exclusão
+
+                    # Atualize os dados ou remova a despesa excluída da lista diretamente
+                    # Você pode recarregar a lista de despesas ou fazer outra ação sem usar rerun.
+                    # Exemplo:
+                    usuario = listarpagamento()  # Recarregar a lista de despesas
+
+                    # Converte lista de tuplas em DataFrame
+                    df_usuario = pd.DataFrame(usuario, columns=["Seq", "Mes", "Ano", "Valor", "tipodespesa", "Descricao"])
+
+                    # Formata Valor como moeda brasileira
+                    df_usuario["ValorFormatado"] = df_usuario["Valor"].apply(
+                        lambda x: f"R$ {x:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+                    )
+
+                    # Junta Mes/Ano em uma única coluna
+                    df_usuario["MesAno"] = df_usuario["Mes"].astype(str) + "/" + df_usuario["Ano"].astype(str)
+
+                    # Junta TipoDespesa + ValorFormatado em uma única coluna
+                    df_usuario["DespesaValor"] = df_usuario["tipodespesa"] + " (" + df_usuario["ValorFormatado"] + ")"
+
+                    # Atualiza a tabela na tela
+                    st.write("### Lista de Despesas Atualizada:")
+                    st.dataframe(df_usuario)  # Mostra a lista atualizada
+
+                else:
+                    st.warning("Nenhuma despesa foi excluída ainda.")
