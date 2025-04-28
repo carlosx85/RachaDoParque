@@ -82,7 +82,7 @@ def show():
                 if st.button("Excluir", key=f"excluir_{idx}"):
                     from database import excluir_despesa
                     excluir_despesa(row["Seq"])  # Exclui pelo SEQ
-                    st.success(f"Despesa excluída!")
+     
 
                     # Atualiza o estado para refletir a exclusão
                     st.session_state['despesa_excluida'] = True  # Marca a exclusão
