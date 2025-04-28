@@ -79,10 +79,6 @@ def show():
             with col3:
                 st.write(row["Descricao"])  # Descrição
             with col4:
-                if st.button("Alterar", key=f"alterar_{idx}"):
-                    st.session_state['pagina'] = 'alterar'
-                    st.session_state['despesa_idx'] = idx
-                    st.experimental_rerun()
                 if st.button("Excluir", key=f"excluir_{idx}"):
                     from database import excluir_despesa
                     excluir_despesa(row["Mes"], row["Ano"], row["tipodespesa"], row["Descricao"])
