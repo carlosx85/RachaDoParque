@@ -53,7 +53,7 @@ def show():
 
     if usuario:
         # Converte lista de tuplas em DataFrame
-        df_usuario = pd.DataFrame(usuario, columns=["Mes", "Ano", "Valor", "tipodespesa", "Descricao"])
+        df_usuario = pd.DataFrame(usuario, columns=["Seq","Mes", "Ano", "Valor", "tipodespesa", "Descricao"])
 
         # Formata Valor como moeda brasileira
         df_usuario["ValorFormatado"] = df_usuario["Valor"].apply(
