@@ -48,7 +48,7 @@ def show():
             st.success("✅ Pagamento efetuado com sucesso!")
             
         
-        usuario = listarpagamento() 
+    usuario = listarpagamento() 
 
     if usuario:
         # Converte lista de tuplas em DataFrame
