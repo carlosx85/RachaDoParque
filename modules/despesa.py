@@ -61,7 +61,7 @@ def show():
         )
 
         # Junta Mes/Ano em uma única coluna
-        df_usuario["MesAno"] = df_usuario["Mes"].astype(str) + "/" + df_usuario["Ano"].astype(str)
+        df_usuario["MesAno"] = df_usuario["Seq"].astype(str) +"Mes"].astype(str) + "/" + df_usuario["Ano"].astype(str)
 
         # Junta TipoDespesa + ValorFormatado em uma única coluna
         df_usuario["DespesaValor"] = df_usuario["tipodespesa"] + " (" + df_usuario["ValorFormatado"] + ")"
