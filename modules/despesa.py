@@ -54,7 +54,7 @@ def show():
 
     if usuario:
         # Converte lista de tuplas em DataFrame
-        df_usuario = pd.DataFrame(usuario, columns=[ "Mes", "Ano", "Valor", "tipodespesa", "Descricao"])
+        df_usuario = pd.DataFrame(usuario, columns=["Seq", "Mes", "Ano", "Valor", "tipodespesa", "Descricao"])
 
         # Formata Valor como moeda brasileira
         df_usuario["ValorFormatado"] = df_usuario["Valor"].apply(
@@ -87,12 +87,11 @@ def show():
                     st.session_state['despesa_idx'] = idx
                     st.experimental_rerun()
             with col6:
-                if st.button("Excluir", key=f"excluir_{Seq}"):
+                if st.button("Excluir", key=f"excluir_{idx}"):
                     from database import excluir_despesa
-                    excluir_despesa(row["Seq"])
-                    st.success("Despesa excluída!")
+                    excluir_despesa(row["Mes"], row["Ano"], row["tipodespesa"], row["Descricao"])
+                    st.success(f"Despesa excluída!")
                     st.experimental_rerun()
-
     else:
         st.warning("Nenhuma despesa cadastrada ainda.")
                     
