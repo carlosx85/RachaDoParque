@@ -81,9 +81,12 @@ def show():
             with col4:
                 if st.button("Excluir", key=f"excluir_{idx}"):
                     from database import excluir_despesa
-                    excluir_despesa(row["Mes"], row["Ano"], row["tipodespesa"], row["Descricao"])
+                    excluir_despesa(row["Seq"])  # Exclui pelo SEQ
                     st.success(f"Despesa excluída!")
-                    st.experimental_rerun()
+                
+                # Atualiza o estado ou dados para refletir a exclusão sem forçar rerun
+                st.session_state['despesa_excluida'] = True  # Só exemplo
+                # Remover rerun e deixar o estado gerenciar a navegação ou atualização
     else:
         st.warning("Nenhuma despesa cadastrada ainda.")
                     
