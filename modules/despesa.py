@@ -106,7 +106,7 @@ def show():
                     # Junta TipoDespesa + ValorFormatado em uma única coluna
                     df_usuario["DespesaValor"] = df_usuario["tipodespesa"] + " (" + df_usuario["ValorFormatado"] + ")"
                     
-                    st.experimental_rerun()  # 🔥 Força recarregar a tela
+        
 
 
 
