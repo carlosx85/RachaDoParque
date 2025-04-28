@@ -53,7 +53,7 @@ def show():
 
     if usuario:
         # Converte lista de tuplas em DataFrame
-        df_usuario = pd.DataFrame(usuario, columns=["Seq","Mes", "Ano", "Valor", "tipodespesa", "Descricao"])
+        df_usuario = pd.DataFrame(usuario, columns=["Mes", "Ano", "Valor", "tipodespesa", "Descricao"])
 
         # Formata Valor como moeda brasileira
         df_usuario["ValorFormatado"] = df_usuario["Valor"].apply(
@@ -61,7 +61,7 @@ def show():
         )
 
         # Junta Mes/Ano em uma única coluna
-        df_usuario["MesAno"] = df_usuario["Seq"].astype(str) +"Mes"].astype(str) + "/" + df_usuario["Ano"].astype(str)
+        df_usuario["MesAno"] = df_usuario["Mes"].astype(str) + "/" + df_usuario["Ano"].astype(str)
 
         # Junta TipoDespesa + ValorFormatado em uma única coluna
         df_usuario["DespesaValor"] = df_usuario["tipodespesa"] + " (" + df_usuario["ValorFormatado"] + ")"
