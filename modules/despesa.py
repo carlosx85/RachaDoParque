@@ -110,5 +110,5 @@ def show():
                     st.write("### Lista de Despesas Atualizada:")
                     st.dataframe(df_usuario)  # Mostra a lista atualizada
 
-                else:
-                    st.warning("Nenhuma despesa foi excluída ainda.")
+          
+            
