@@ -26,7 +26,7 @@ def show():
     anos = carregar_anos()
 
     # Tipos de despesa
-    opcoes = [ "Lavagem dos Coletes", "Compra de Bola", "Compra de Coletes", "Material de Farmácia"]
+    opcoes = [" " , "Lavagem dos Coletes", "Compra de Bola", "Compra de Coletes", "Material de Farmácia"]
     tipo_despesa = st.selectbox("Selecione o Tipo de Despesa:", opcoes)
 
     # Seleção de mês e ano
