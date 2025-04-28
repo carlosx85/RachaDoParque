@@ -87,7 +87,7 @@ def show():
                     st.session_state['despesa_idx'] = idx
                     st.experimental_rerun()
             with col6:
-                if st.button("Excluir", key=f"excluir_{idx}"):
+                if st.button("Excluir", key=f"excluir_{Seq}"):
                     from database import excluir_despesa
                     excluir_despesa(row["Seq"])
                     st.success("Despesa excluída!")
