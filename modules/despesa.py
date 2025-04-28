@@ -70,24 +70,27 @@ def show():
 
         # Mostra a lista linha por linha com botões
         for idx, row in df_usuario.iterrows():
-            col1, col2, col3, col4 = st.columns([2, 3, 3, 1])
+            col1, col2, col3, col4, col5, col6 = st.columns([2, 2, 2, 2, 2, 1])
 
-        with col1:
-            st.write(row["MesAno"])  # Mês/Ano
-        with col2:
-            st.write(row["DespesaValor"])  # TipoDespesa + (Valor)
-        with col3:
-            st.write(row["Descricao"])  # Descrição
-        with col4:
-            if st.button("Alterar", key=f"alterar_{idx}"):
-                st.session_state['pagina'] = 'alterar'
-                st.session_state['despesa_idx'] = idx
-                st.experimental_rerun()
-            if st.button("Excluir", key=f"excluir_{idx}"):
-                from database import excluir_despesa
-                excluir_despesa(row["Mes"], row["Ano"],  row["Descricao"])
-                st.success(f"Despesa excluída!")
-                st.experimental_rerun()
+            with col1:
+                st.write(row["MesAno"])  # agora mostra junto
+            with col2:
+                st.write(row["ValorFormatado"])
+            with col3:
+                st.write(row["tipodespesa"])
+            with col4:
+                st.write(row["Descricao"])
+            with col5:
+                if st.button("Alterar", key=f"alterar_{idx}"):
+                    st.session_state['pagina'] = 'alterar'
+                    st.session_state['despesa_idx'] = idx
+                    st.experimental_rerun()
+            with col6:
+                if st.button("Excluir", key=f"excluir_{idx}"):
+                    from database import excluir_despesa
+                    excluir_despesa(row["Mes"], row["Ano"], row["tipodespesa"], row["Descricao"])
+                    st.success(f"Despesa excluída!")
+                    st.experimental_rerun()
     else:
         st.warning("Nenhuma despesa cadastrada ainda.")
                     
