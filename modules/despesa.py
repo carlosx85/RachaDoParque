@@ -18,6 +18,13 @@ def formatar_moeda(valor):
     return f"R$ {valor:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 def show():
+    
+        # Se acabou de excluir, limpa a flag e recarrega
+    if st.session_state.get("despesa_excluida"):
+        st.session_state["despesa_excluida"] = False  # Limpa para não ficar preso
+        st.success("✅ Despesa excluída com sucesso!")
+        
+        
     mes_atual = datetime.now().month
     ano_atual = datetime.now().year
 
@@ -105,6 +112,11 @@ def show():
 
                     # Junta TipoDespesa + ValorFormatado em uma única coluna
                     df_usuario["DespesaValor"] = df_usuario["tipodespesa"] + " (" + df_usuario["ValorFormatado"] + ")"
+                    
+                    
+                            # Após excluir, marca uma flag para voltar pro início
+                    st.session_state["despesa_excluida"] = True
+                    st.experimental_rerun()
                     
         
 
