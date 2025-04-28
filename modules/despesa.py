@@ -47,42 +47,40 @@ def show():
             atualizar_valor_despesa(mes, ano, tipo_despesa, descricao, valor)
             st.success("✅ Pagamento efetuado com sucesso!")
             
-            
-            
-                usuario = listarpagamento() 
+usuario = listarpagamento() 
 
-            if usuario:
-                # Converte lista de tuplas em DataFrame
-                df_usuario = pd.DataFrame(usuario, columns=["Mes", "Ano", "Valor", "tipodespesa", "Descricao"])
+if usuario:
+    # Converte lista de tuplas em DataFrame
+    df_usuario = pd.DataFrame(usuario, columns=["Mes", "Ano", "Valor", "tipodespesa", "Descricao"])
 
-                # Formata Valor como moeda brasileira
-                df_usuario["ValorFormatado"] = df_usuario["Valor"].apply(
-                    lambda x: f"R$ {x:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
-                )
+    # Formata Valor como moeda brasileira
+    df_usuario["ValorFormatado"] = df_usuario["Valor"].apply(
+        lambda x: f"R$ {x:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+    )
 
-                # Junta Mes/Ano em uma única coluna
-                df_usuario["MesAno"] = df_usuario["Mes"].astype(str) + "/" + df_usuario["Ano"].astype(str)
+    # Junta Mes/Ano em uma única coluna
+    df_usuario["MesAno"] = df_usuario["Mes"].astype(str) + "/" + df_usuario["Ano"].astype(str)
 
-                # Junta TipoDespesa + ValorFormatado em uma única coluna
-                df_usuario["DespesaValor"] = df_usuario["tipodespesa"] + " (" + df_usuario["ValorFormatado"] + ")"
+    # Junta TipoDespesa + ValorFormatado em uma única coluna
+    df_usuario["DespesaValor"] = df_usuario["tipodespesa"] + " (" + df_usuario["ValorFormatado"] + ")"
 
-                st.write("### Lista de Despesas:")
+    st.write("### Lista de Despesas:")
 
-                # Mostra a lista linha por linha com botões
-                for idx, row in df_usuario.iterrows():
-                    col1, col2, col3, col4 = st.columns([2, 3, 3, 1])
+    # Mostra a lista linha por linha com botões
+    for idx, row in df_usuario.iterrows():
+        col1, col2, col3, col4 = st.columns([2, 3, 3, 1])
 
-                    with col1:
-                        st.write(row["MesAno"])  # Mês/Ano
-                    with col2:
-                        st.write(row["DespesaValor"])  # TipoDespesa + (Valor)
-                    with col3:
-                        st.write(row["Descricao"])  # Descrição
-                    with col4:
-                        if st.button("Alterar", key=f"alterar_{idx}"):
-                            st.session_state['pagina'] = 'alterar'
-                            st.session_state['despesa_idx'] = idx
-                            st.experimental_rerun()
-                        if st.button("Excluir", key=f"excluir_{idx}"):
-                            from database import excluir_despesa
-                            excluir_despesa(row["Mes"], row["Ano"], row["tipodespesa"], row["Descricao_
+        with col1:
+            st.write(row["MesAno"])  # Mês/Ano
+        with col2:
+            st.write(row["DespesaValor"])  # TipoDespesa + (Valor)
+        with col3:
+            st.write(row["Descricao"])  # Descrição
+        with col4:
+            if st.button("Alterar", key=f"alterar_{idx}"):
+                st.session_state['pagina'] = 'alterar'
+                st.session_state['despesa_idx'] = idx
+                st.experimental_rerun()
+            if st.button("Excluir", key=f"excluir_{idx}"):
+                from database import excluir_despesa
+                excluir_despesa(row["Mes"], row["Ano"], row["tipodespesa"], row["Descricao_
