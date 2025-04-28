@@ -45,7 +45,7 @@ def show():
             st.error("O campo 'Tipo de Despesa' é obrigatório.")
         else:
             atualizar_valor_despesa(mes, ano, tipo_despesa, descricao, valor)
-                st.success("✅ Pagamento efetuado com sucesso!")
+            st.success("✅ Pagamento efetuado com sucesso!")
                 
                 
     
