@@ -85,7 +85,7 @@ def show():
                 st.experimental_rerun()
             if st.button("Excluir", key=f"excluir_{idx}"):
                 from database import excluir_despesa
-                excluir_despesa(row["Mes"], row["Ano"], row["tipodespesa"], row["Descricao"])
+                excluir_despesa(row["Mes"], row["Ano"],  row["Descricao"])
                 st.success(f"Despesa excluída!")
                 st.experimental_rerun()
     else:
