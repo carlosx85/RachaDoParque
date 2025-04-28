@@ -116,7 +116,7 @@ def show():
                     
                             # Após excluir, marca uma flag para voltar pro início
                     st.session_state["despesa_excluida"] = True
-                    st.experimental_rerun()
+                    st.rerun()
                     
         
 
