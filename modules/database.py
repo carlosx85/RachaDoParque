@@ -281,7 +281,7 @@ def listarpagamento():
     conexao = conectar()
     cursor = conexao.cursor()
     cursor.execute("""
-        SELECT  Mes, Ano, Valor, tipoDespesa, descricao
+        SELECT  Seq,Mes, Ano, Valor, tipoDespesa, descricao
         FROM Racha_Despesa        
         Order by Data_Cad desc ;
     """, ())
@@ -343,12 +343,12 @@ def resumoreceitames(mes, ano):
     return dados
 
 
-def excluir_despesa(mes, ano, tipodespesa, descricao):
+def excluir_despesa(seq):
     conexao = conectar()
     cursor = conexao.cursor()
-    query = "DELETE FROM Racha_Despesa WHERE Mes = %s AND Ano = %s AND tipodespesa = %s AND Descricao = %s"
-    cursor.execute(query, (mes, ano, tipodespesa, descricao))
+    cursor.execute("DELETE FROM Racha_Despesa WHERE Seq = %s", (seq,))
     conexao.commit()
+    cursor.close()
     conexao.close()
 
 
