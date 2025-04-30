@@ -17,21 +17,6 @@ def show():
     
     
 
-    st.markdown("""
-        <style>
-            body {
-                background-color: #053048;
-            }
-            [data-testid="stAppViewContainer"] {
-                background-color: #053048;
-            }
-            [data-testid="stHeader"], [data-testid="stToolbar"] {
-                background: none;
-            }
-            [data-testid="stSidebar"] {
-                background-color: #445522;
-            }
-        </style>
-    """, unsafe_allow_html=True)
+ 
 
-    st.title("App com fundo verde musgo")
+  
