@@ -16,14 +16,14 @@ def show():
     st.markdown(header_html, unsafe_allow_html=True)
     
     
-        # CSS personalizado para fundo verde musgo
+
     st.markdown("""
         <style>
             body {
-                background-color: #556B2F;
+                background-color: #053048;
             }
             [data-testid="stAppViewContainer"] {
-                background-color: #556B2F;
+                background-color: #053048;
             }
             [data-testid="stHeader"], [data-testid="stToolbar"] {
                 background: none;
