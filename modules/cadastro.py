@@ -51,7 +51,7 @@ def show():
         
         botao_cadastrar = st.form_submit_button("Cadastrar")
         
-        st.write("[cliqu aqui](https://boladecapotao.com/bet/)")
+        st.write("[clique aqui](modules/jogador.py?Seq=4444)")
 
     if botao_cadastrar:
         if nome.strip() == ""or  login.strip() == "":
