@@ -16,14 +16,22 @@ def show():
     st.markdown(header_html, unsafe_allow_html=True)
     
     
-    st.set_page_config(
-    page_title="Ex-stream-ly Cool App",
-    page_icon="🧊",
-    layout="wide",
-    initial_sidebar_state="expanded",
-    menu_items={
-        'Get Help': 'https://www.extremelycoolapp.com/help',
-        'Report a bug': "https://www.extremelycoolapp.com/bug",
-        'About': "# This is a header. This is an *extremely* cool app!"
-    }
-)
+        # CSS personalizado para fundo verde musgo
+    st.markdown("""
+        <style>
+            body {
+                background-color: #556B2F;
+            }
+            [data-testid="stAppViewContainer"] {
+                background-color: #556B2F;
+            }
+            [data-testid="stHeader"], [data-testid="stToolbar"] {
+                background: none;
+            }
+            [data-testid="stSidebar"] {
+                background-color: #445522;
+            }
+        </style>
+    """, unsafe_allow_html=True)
+
+    st.title("App com fundo verde musgo")
