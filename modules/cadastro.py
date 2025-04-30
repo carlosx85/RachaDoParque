@@ -20,7 +20,7 @@ def show():
             ddd = st.number_input("DDD", min_value=0, max_value=99, step=1, format="%d")
             # Verifica o número de dígitos
             if len(str(int(ddd))) > 2:
-                st.error("Telefone não pode ter mais de 9 dígitos!")
+                st.error("DDD não pode ter mais de 2 dígitos!")
                 
         with col2:
             telefone = st.number_input("Telefone", min_value=0, max_value=999999999, step=1, format="%d")
@@ -50,6 +50,8 @@ def show():
         StatusdePagamento = opcoes[opcao_escolhida]
         
         botao_cadastrar = st.form_submit_button("Cadastrar")
+        
+        st.write("[cliqu aqui](https://boladecapotao.com/bet/)")
 
     if botao_cadastrar:
         if nome.strip() == ""or  login.strip() == "":
