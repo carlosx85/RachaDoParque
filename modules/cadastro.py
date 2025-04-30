@@ -51,7 +51,7 @@ def show():
         
         botao_cadastrar = st.form_submit_button("Cadastrar")
         
-        st.write("[clique aqui](Jogador.py?Seq=4444)")
+        st.write("[clique aqui](jogador.py?Seq=4474)")
 
     if botao_cadastrar:
         if nome.strip() == ""or  login.strip() == "":
