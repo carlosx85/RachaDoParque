@@ -17,6 +17,21 @@ def show():
     
     
 
- 
+    st.markdown("""
+        <style>
+            body {
+                background-color: #053048;
+            }
+            [data-testid="stAppViewContainer"] {
+                background-color: #black;
+            }
+            [data-testid="stHeader"], [data-testid="stToolbar"] {
+                background: none;
+            }
+            [data-testid="stSidebar"] {
+                background-color: #black;
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
   
