@@ -44,9 +44,9 @@ def show():
         mes_selecionado = 1 # Maio
 
         with col1:
-            dia = st.selectbox("Dia", dias, index=dias.index(dia_selecionado) if dia_selecionado in dias else 0)
+            dianasc = st.selectbox("Dia", dias, index=dias.index(dia_selecionado) if dia_selecionado in dias else 0)
         with col2:
-            mes = st.selectbox("Mês", meses, index=meses.index(mes_selecionado) if mes_selecionado in meses else 0)
+            mesnasc = st.selectbox("Mês", meses, index=meses.index(mes_selecionado) if mes_selecionado in meses else 0)
                 
         # Mapeia o texto visível para o valor interno
         opcoes = {
