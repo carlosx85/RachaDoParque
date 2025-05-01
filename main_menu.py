@@ -34,7 +34,7 @@ def show():
         
         
         
-def show():
+ 
     header_html = f"""
     <div style="display: flex; align-items: center; padding: 10px 0 5px 0;">
         <img src="https://boladecapotao.com/img/Racha_Logo_G.png" width="50" style="margin-right: 15px;">
