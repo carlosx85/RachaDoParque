@@ -2,15 +2,12 @@ import streamlit as st
 from database import inserir_cliente, buscar_cliente_por_id,inserir_racha_financeiro
 import streamlit.components.v1 as components
 
-def carregar_meses():
-    return list(range(1, 12))
-
-
-def carregar_dia():
-    return list(range(1, 31))
-
+ 
 
 def show():
+    
+ 
+    
     if not st.session_state.get("logado", False):
         st.warning("Acesso negado. Faça login para continuar.")
         st.stop()
@@ -37,13 +34,19 @@ def show():
                 
         contato  = st.text_input("Contato", max_chars=100)    
             
-           # Segunda linha: Dia Nasc e Mês Nasc
-        # Seleção de período
-        col1, col2, _ = st.columns([2, 4, 6])
+        col1, col2 = st.columns(2)
+
+        dias = list(range(1, 32))      # Dias de 1 a 31
+        meses = list(range(1, 13))     # Meses de 1 a 12
+
+        # Valores selecionados previamente (exemplo)
+        dia_selecionado = 15
+        mes_selecionado = 5  # Maio
+
         with col1:
-            dia = st.selectbox("Dia", dia, index=dia.index(dia) if dia in dia else 0)
+            dia = st.selectbox("Dia", dias, index=dias.index(dia_selecionado) if dia_selecionado in dias else 0)
         with col2:
-            mes = st.selectbox("Mes", mes, index=mes.index(mes) if mes in mes else 0)
+            mes = st.selectbox("Mês", meses, index=meses.index(mes_selecionado) if mes_selecionado in meses else 0)
                 
         # Mapeia o texto visível para o valor interno
         opcoes = {
