@@ -43,7 +43,7 @@ def show():
         with col1:
             dia = st.selectbox("Dia", dia, index=dia.index(dia) if dia in dia else 0)
         with col2:
-            mes = st.selectbox("Mes", mes, index=mes.index(mes) if mes in anos else 0)
+            mes = st.selectbox("Mes", mes, index=mes.index(mes) if mes in mes else 0)
                 
         # Mapeia o texto visível para o valor interno
         opcoes = {
