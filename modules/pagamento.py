@@ -42,13 +42,7 @@ def show():
     meses = [str(i) for i in range(1, 13)]  # Mês de 1 a 12
     anos = [str(ano) for ano in range(2020, 2031)]  # Exemplo de anos de 2020 a 2030
 
-    
-    mes_atual = datetime.now().month
-    ano_atual = datetime.now().year
-
-    
-    
-    
+ 
     
 
     # Layout com colunas
