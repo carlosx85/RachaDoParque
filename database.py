@@ -26,12 +26,12 @@ def validar_login(usuario, senha):
 
 
     
-def inserir_cliente(nome,Login,ddd,telefone,StatusdePagamento,dianasc,mesnasc):
+def inserir_cliente(nome,Login,ddd,telefone,StatusdePagamento,dianasc,mesnasc,contato):
     try:
         conexao = conectar()
         cursor = conexao.cursor()
-        query = "INSERT INTO Racha_Usuario (Nome,Login,DDD,Telefone,StatusdePagamento,DiaNasc,MesNasc) VALUES (%s,%s,%s,%s,%s,%s,%s)"
-        cursor.execute(query, (nome,Login,ddd,telefone,StatusdePagamento,dianasc,mesnasc))
+        query = "INSERT INTO Racha_Usuario (Nome,Login,DDD,Telefone,StatusdePagamento,DiaNasc,MesNasc,Contato) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+        cursor.execute(query, (nome,Login,ddd,telefone,StatusdePagamento,dianasc,mesnasc,contato))
         conexao.commit()
         cliente_id = cursor.lastrowid  # 👈 captura o ID gerado
         cursor.close()
