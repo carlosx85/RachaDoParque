@@ -14,7 +14,7 @@ def show():
     header.show()
     
         # Adicionando imagem na sidebar (antes do menu)
-    st.sidebar.image("https://boladecapotao.com/img/Racha_Logo_G.png", use_column_width=True)
+    st.sidebar.image("https://boladecapotao.com/img/Racha_Logo_M.png", use_column_width=True)
 
     menu = st.sidebar.radio("Menu", ["Principal", "Cadastro", "Financeiro", "Pagamento", "Despesa", "Sair"])
 
