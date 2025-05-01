@@ -60,7 +60,7 @@ def show():
 
     obs = st.text_input("Obs", max_chars=100)
     
-    valor = st.number_input("Digite o valor do pagamento:", min_value=0, step=1, format="%d")
+    valor = st.number_input("Digite o valor do pagamento:", min_value=15, step=1, format="%d")
     
    
 
