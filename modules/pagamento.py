@@ -44,9 +44,12 @@ def show():
     # Layout com colunas
     col1, col2, _ = st.columns([2, 4, 6])
     with col1:
-        mes = st.selectbox("Mês", meses, index=meses.index(mes_atual) if mes_atual in meses else 0)
+        mes_str = st.selectbox("Mês", meses, index=meses.index(mes_atual) if mes_atual in meses else 0)
+        mes = int(mes_str)  # converte para inteiro, se necessário
     with col2:
-        ano = st.selectbox("Ano", anos, index=anos.index(ano_atual) if ano_atual in anos else 0)
+        ano_str = st.selectbox("Ano", anos, index=anos.index(ano_atual) if ano_atual in anos else 0)
+        ano = int(ano_str)  # converte para inteiro, se necessário
+
 
 
     tipopagamento = ["Pago", "Em Negociacao"]
