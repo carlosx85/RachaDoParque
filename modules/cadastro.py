@@ -5,7 +5,6 @@ import streamlit.components.v1 as components
  
 
 def show():
-    
     st.subheader("Cadastro de Jogador")
     
  
@@ -72,23 +71,14 @@ def show():
             st.error("O campo 'Nome/Apelido' são obrigatório.")
         else:
             cliente_id = inserir_cliente(nome,login,ddd,telefone,StatusdePagamento,dianasc,mesnasc,contato)
-
             if cliente_id:
-                st.success(f"Jogador '{nome}' cadastrado com sucesso!")
+                st.success(f"Jogador  '{nome}' Cadastrado com sucesso!)")
 
+                # Buscar cliente e mostrar após o form
                 cliente = buscar_cliente_por_id(cliente_id)
                 if cliente:
-                    inserir_racha_financeiro(cliente_id)
-
-                # Limpa os campos
-                st.session_state["nome"] = ""
-                st.session_state["login"] = ""
-                st.session_state["ddd"] = 0
-                st.session_state["telefone"] = 0
-                st.session_state["contato"] = ""
-                st.session_state["dia"] = dias[0]
-                st.session_state["mes"] = meses[0]
-                st.session_state["StatusdePagamento"] = list(opcoes.keys())[0]
-
-                # Recarrega a página para "renovar" o formulário
-                st.rerun()
+                    inserir_racha_financeiro(cliente_id)# grava o cliente_id na session
+                  
+ 
+            else:
+                st.error("Erro ao cadastrar o jogador.")
