@@ -40,8 +40,8 @@ def show():
         meses = list(range(1, 13))     # Meses de 1 a 12
 
         # Valores selecionados previamente (exemplo)
-        dia_selecionado = 15
-        mes_selecionado = 5  # Maio
+        dia_selecionado = 1
+        mes_selecionado = 1 # Maio
 
         with col1:
             dia = st.selectbox("Dia", dias, index=dias.index(dia_selecionado) if dia_selecionado in dias else 0)
