@@ -6,7 +6,6 @@ from modules.pagamento import show as pagamento_show
 from modules.despesa import show as despesa_show 
 import header  # se tiver
 
-st.write("[cliqu aqui](https://boladecapotao.com/bet/)")
 
 if "usuario" not in st.session_state:
     st.session_state.usuario = ""
@@ -14,7 +13,7 @@ if "usuario" not in st.session_state:
 def show():
     header.show()
 
-    menu = st.sidebar.radio("Menu", ["Principal", "Cadastro", "Financeiro", "Pagamento", "Despesa", "Sair"])
+    menu = st.sidebar.radio("Menuaa", ["Principal", "Cadastro", "Financeiro", "Pagamento", "Despesa", "Sair"])
 
 
     if menu == "Principal":
