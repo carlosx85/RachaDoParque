@@ -21,6 +21,7 @@ def show():
 
     meses = buscar_meses()
     anos = buscar_anos()
+    
     dados_logins = get_logins()
 
     if not dados_logins:
@@ -38,12 +39,7 @@ def show():
         st.exception(e)
         return
 
-    # Meses e anos como listas de valores simples
-    meses = [str(i) for i in range(1, 13)]  # Mês de 1 a 12
-    anos = [str(ano) for ano in range(2020, 2031)]  # Exemplo de anos de 2020 a 2030
-
  
-    
 
     # Layout com colunas
     col1, col2, _ = st.columns([2, 4, 6])
