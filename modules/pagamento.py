@@ -14,13 +14,21 @@ st.subheader("Financeiro")
 def get_logins():
     return buscar_logins()
 
+def carregar_meses():
+    return list(range(1, 13))
+ 
+def carregar_anos():
+    return list(range(2025, 2031))
+
 
 def show():
     mes_atual = datetime.now().month
     ano_atual = datetime.now().year
 
-    meses = buscar_meses()
-    anos = buscar_anos()
+    # Carregar listas com cache
+    meses = carregar_meses()
+    anos = carregar_anos()
+    
     
     dados_logins = get_logins()
 
