@@ -73,32 +73,7 @@ def show():
         else:
             cliente_id = inserir_cliente(nome,login,ddd,telefone,StatusdePagamento,dianasc,mesnasc,contato)
             if cliente_id:
-                st.success(f"Jogador '{nome}' cadastrado com sucesso!")
-
-                cliente = buscar_cliente_por_id(cliente_id)
-                if cliente:
-                    inserir_racha_financeiro(cliente_id)
-
-                # Limpar os campos do formulário
-                st.session_state["nome_cadastro"] = ""
-                st.session_state["login_cadastro"] = ""
-                st.session_state["ddd_cadastro"] = 0
-                st.session_state["telefone_cadastro"] = 0
-                st.session_state["contato_cadastro"] = ""
-                st.session_state["dia_cadastro"] = dias[0]   # ou valor padrão
-                st.session_state["mes_cadastro"] = meses[0]
-                st.session_state["status_cadastro"] = list(opcoes.keys())[0]
-
-
-                
-                
-                
-                
-                
-                
-                
-                
-                
+                st.success(f"Jogador  '{nome}' Cadastrado com sucesso!)")
 
                 # Buscar cliente e mostrar após o form
                 cliente = buscar_cliente_por_id(cliente_id)
