@@ -65,21 +65,30 @@ def show():
         
         botao_cadastrar = st.form_submit_button("Cadastrar")
         
-        #st.write("[clique aqui](jogador.py?Seq=4474)")
+        st.write("[clique aqui](jogador.py?Seq=4474)")
 
     if botao_cadastrar:
         if nome.strip() == ""or  login.strip() == "":
             st.error("O campo 'Nome/Apelido' são obrigatório.")
         else:
             cliente_id = inserir_cliente(nome,login,ddd,telefone,StatusdePagamento,dianasc,mesnasc,contato)
-            if cliente_id:
-                st.success(f"Jogador  '{nome}' Cadastrado com sucesso!)")
 
-                # Buscar cliente e mostrar após o form
+            if cliente_id:
+                st.success(f"Jogador '{nome}' cadastrado com sucesso!")
+
                 cliente = buscar_cliente_por_id(cliente_id)
                 if cliente:
-                    inserir_racha_financeiro(cliente_id)# grava o cliente_id na session
-                  
- 
-            else:
-                st.error("Erro ao cadastrar o jogador.")
+                    inserir_racha_financeiro(cliente_id)
+
+                # Limpa os campos
+                st.session_state["nome"] = ""
+                st.session_state["login"] = ""
+                st.session_state["ddd"] = 0
+                st.session_state["telefone"] = 0
+                st.session_state["contato"] = ""
+                st.session_state["dia"] = dias[0]
+                st.session_state["mes"] = meses[0]
+                st.session_state["StatusdePagamento"] = list(opcoes.keys())[0]
+
+                # Recarrega a página para "renovar" o formulário
+                st.rerun()
