@@ -6,13 +6,15 @@ import streamlit.components.v1 as components
 
 def show():
     
+    st.subheader("Cadastro de Jogador")
+    
  
     
     if not st.session_state.get("logado", False):
         st.warning("Acesso negado. Faça login para continuar.")
         st.stop()
 
-    st.subheader("Cadastro de Jogador")
+
 
     # --- FORMULÁRIO DE CADASTRO ---
     with st.form("form_cadastro"):

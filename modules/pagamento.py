@@ -9,7 +9,7 @@ from database import (
     buscar_usuario_por_seq1
 )
 
-st.subheader("Financeiro")
+
 
 def get_logins():
     return buscar_logins()
@@ -22,6 +22,8 @@ def carregar_anos():
 
 
 def show():
+    st.subheader("Pagamento")
+    
     mes_atual = datetime.now().month
     ano_atual = datetime.now().year
 
