@@ -83,9 +83,3 @@ def show():
  
             else:
                 st.error("Erro ao cadastrar o jogador.")
-                
-                
-                
-                
-                if cliente_id:
-
