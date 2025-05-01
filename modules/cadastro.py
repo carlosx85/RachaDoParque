@@ -27,7 +27,8 @@ def show():
             # Verifica o número de dígitos
             if len(str(int(telefone))) > 9:
                 st.error("Telefone não pode ter mais de 9 dígitos!")
-            
+                
+        contato  = st.text_input("Contato", max_chars=100)    
             
            # Segunda linha: Dia Nasc e Mês Nasc
         col3, col4 = st.columns([1, 4])
@@ -57,7 +58,7 @@ def show():
         if nome.strip() == ""or  login.strip() == "":
             st.error("O campo 'Nome/Apelido' são obrigatório.")
         else:
-            cliente_id = inserir_cliente(nome,login,ddd,telefone,StatusdePagamento,dianasc,mesnasc)
+            cliente_id = inserir_cliente(nome,login,ddd,telefone,StatusdePagamento,dianasc,mesnasc,contato)
             if cliente_id:
                 st.success(f"Jogador  '{nome}' Cadastrado com sucesso!)")
 
