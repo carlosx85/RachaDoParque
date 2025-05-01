@@ -12,7 +12,7 @@ def show():
         st.warning("Acesso negado. Faça login para continuar.")
         st.stop()
 
-    st.subheader("Cadastro de Cliente")
+    st.subheader("Cadastro de Jogador")
 
     # --- FORMULÁRIO DE CADASTRO ---
     with st.form("form_cadastro"):
@@ -80,4 +80,4 @@ def show():
                   
  
             else:
-                st.error("Erro ao cadastrar o cliente.")
+                st.error("Erro ao cadastrar o jogador.")

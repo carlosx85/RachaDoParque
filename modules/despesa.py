@@ -19,6 +19,8 @@ def formatar_moeda(valor):
 
 def show():
     
+        st.subheader("Despesa")
+    
         # Se acabou de excluir, limpa a flag e recarrega
     if st.session_state.get("despesa_excluida"):
         st.session_state["despesa_excluida"] = False  # Limpa para não ficar preso

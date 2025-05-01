@@ -20,6 +20,10 @@ def formatar_moeda(valor):
     return f"R$ {valor:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 def show():
+    
+    
+    
+    st.subheader("Financeiro")
     mes_atual = datetime.now().month
     ano_atual = datetime.now().year
 
