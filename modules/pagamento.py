@@ -65,6 +65,11 @@ def show():
     tipopagamento = ["Pago", "Em Negociacao"]
     
     tipo = st.selectbox("Selecione o Status do Pagamento:", tipopagamento)
+    
+    
+    formapagamento = ["Pix", "Dinheiro"]
+    
+    forma = st.selectbox("Selecione o Status do Pagamento:", formapagamento)
 
     obs = st.text_input("Obs", max_chars=100)
     
@@ -74,7 +79,7 @@ def show():
 
     if st.button("Efetuar o pagamento"):
         st.cache_data.clear()      
-        atualizar_valor(seq, mes, ano, valor, tipo, obs)
+        atualizar_valor(seq, mes, ano, valor, tipo, obs,forma)
         st.success(f"✅ Pagamento atualizado com sucesso!")
 
         usuario = buscar_usuario_por_seq1(seq)
