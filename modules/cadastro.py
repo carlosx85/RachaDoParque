@@ -6,8 +6,16 @@ import streamlit.components.v1 as components
 
 def show():
     st.subheader("Cadastro de Jogador")
-    nome=[]
-    
+    # Inicializa os valores na session_state
+    if "nome" not in st.session_state:
+        st.session_state.nome = ""
+    if "apelido" not in st.session_state:
+        st.session_state.apelido = ""
+
+    # Função para limpar os campos
+    def limpar_campos():
+        st.session_state.nome = ""
+        st.session_state.apelido = ""
  
     
     if not st.session_state.get("logado", False):
@@ -74,6 +82,7 @@ def show():
             cliente_id = inserir_cliente(nome,login,ddd,telefone,StatusdePagamento,dianasc,mesnasc,contato)
             if cliente_id:
                 st.success(f"Jogador  '{nome}' Cadastrado com sucesso!)")
+                limpar_campos()
                 
 
                 # Buscar cliente e mostrar após o form
