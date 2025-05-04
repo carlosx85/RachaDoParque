@@ -97,13 +97,11 @@ def show():
 
         with col1:
             st.badge(
-                f"Saldo: R$ {saldomes:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                f"Saldo: R$ {saldomes:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".") Receita: R$ {totalrecmes:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/check:",
                 color="green",
                 
-                f"Receita: R$ {totalrecmes:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
-                icon=":material/trending_up:",
-                color="blue"
+    
                 
             )
 
