@@ -6,6 +6,7 @@ import streamlit.components.v1 as components
 
 def show():
     st.subheader("Cadastro de Jogador")
+    nome=[]
     
  
     
@@ -73,6 +74,7 @@ def show():
             cliente_id = inserir_cliente(nome,login,ddd,telefone,StatusdePagamento,dianasc,mesnasc,contato)
             if cliente_id:
                 st.success(f"Jogador  '{nome}' Cadastrado com sucesso!)")
+                
 
                 # Buscar cliente e mostrar após o form
                 cliente = buscar_cliente_por_id(cliente_id)
