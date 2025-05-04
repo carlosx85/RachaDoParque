@@ -101,6 +101,10 @@ def show():
                 icon=":material/check:",
                 color="green",
                 
+                f"Receita: R$ {totalrecmes:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                icon=":material/trending_up:",
+                color="blue"
+                
             )
 
         with col2:
