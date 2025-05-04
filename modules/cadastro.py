@@ -80,9 +80,10 @@ def show():
             st.error("O campo 'Nome/Apelido' são obrigatório.")
         else:
             cliente_id = inserir_cliente(nome,login,ddd,telefone,StatusdePagamento,dianasc,mesnasc,contato)
+            limpar_campos()
             if cliente_id:
                 st.success(f"Jogador  '{nome}' Cadastrado com sucesso!)")
-                limpar_campos()
+                
                 
 
                 # Buscar cliente e mostrar após o form
