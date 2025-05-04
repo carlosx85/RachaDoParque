@@ -107,7 +107,7 @@ def show():
 
         with col2:
             st.badge(
-                f"Receita: R$ {totalrecmes:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
+                f"Rececccita: R$ {totalrecmes:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
                 icon=":material/trending_up:",
                 color="blue"
             )
